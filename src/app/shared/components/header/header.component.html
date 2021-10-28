@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg mb-4 top-bar navbar-static-top sps sps--abv shadow">
+    <div class="container">
+        <a class="navbar-brand me-auto" href="#"><i class="fas fa-torii-gate fs-2 me-1"></i> Snezhnaya <span>Users</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fa fa-list-ul mt-1" aria-hidden="true"></i> </span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/user']" routerLinkActive="router-link-active">User</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                <li class="nav-item" *ngIf="!isLoggedIn()">
+                    <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoggedIn()">
+                    <a class="nav-link" [routerLink]="['/logout']" routerLinkActive="router-link-active">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

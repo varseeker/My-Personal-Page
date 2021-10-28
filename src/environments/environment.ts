@@ -6,6 +6,12 @@ export const environment = {
   production: false
 };
 
+export const messages: any = {
+  required: 'Field %s Harus di isi',
+  minlength: 'Field %s Minimal harus lebih panjang dari %s',
+  email: 'Field %s harus berupa email yang valid',
+};
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
