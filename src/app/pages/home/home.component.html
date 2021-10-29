@@ -1,6 +1,6 @@
 <div class="container">
     <app-header></app-header>
-    <div class="konten shadow justify-content-center">
+    <div class="konten shadow">
         <div class="row justify-content-around py-5 px-4">
             <div class="col-sm-8 cv card shadow p-3">
                 <h1 class="judul">Our Resume</h1>
@@ -50,32 +50,32 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <ng-container *ngIf="angka == 1; then satu; else kedua"></ng-container>
-    <ng-template #satu>
-        <div class="konten container shadow-lg p-4">
-            <app-resume-ahsan></app-resume-ahsan>
-        </div>
-    </ng-template>
-    <ng-template #kedua>
-        <ng-container *ngIf="angka == 2; else ketiga">
-            <div class="konten container shadow-lg p-4">
-                <app-resume-yanuar></app-resume-yanuar>
-            </div>
-        </ng-container>
-        <ng-template #ketiga>
-            <ng-container *ngIf="angka == 3; else kosong">
-                <div class="konten container shadow-lg p-4">
-                    <app-resume-yazri></app-resume-yazri>
+        <div class="row justify-content-center">
+            <ng-container *ngIf="angka == 1; then satu; else kedua"></ng-container>
+            <ng-template #satu>
+                <div class="container p-5">
+                    <app-resume-ahsan></app-resume-ahsan>
                 </div>
-            </ng-container>
-            <ng-template #kosong>
-
             </ng-template>
-        </ng-template>
-    </ng-template>
+            <ng-template #kedua>
+                <ng-container *ngIf="angka == 2; else ketiga">
+                    <div class="container p-5">
+                        <app-resume-yanuar></app-resume-yanuar>
+                    </div>
+                </ng-container>
+                <ng-template #ketiga>
+                    <ng-container *ngIf="angka == 3; else kosong">
+                        <div class="container p-5">
+                            <app-resume-yazri></app-resume-yazri>
+                        </div>
+                    </ng-container>
+                    <ng-template #kosong>
+
+                    </ng-template>
+                </ng-template>
+            </ng-template>
+        </div>
+    </div>
 
 </div>
 <app-footer></app-footer>
