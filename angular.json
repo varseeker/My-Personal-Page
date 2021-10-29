@@ -37,7 +37,7 @@
                         ],
                         "scripts": [
                             "./node_modules/bootstrap/dist/js/bootstrap.bundle.js"
-                          ]
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -76,7 +76,8 @@
                             "browserTarget": "final-task-angular:build:production"
                         },
                         "development": {
-                            "browserTarget": "final-task-angular:build:development"
+                            "browserTarget": "final-task-angular:build:development",
+                            "proxyConfig": "proxy.conf.json"
                         }
                     },
                     "defaultConfiguration": "development"

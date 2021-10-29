@@ -37,9 +37,9 @@ export interface ServiceImpl<T> {
   token: string;
 
   getAll(): Observable<T[]>;
-  getById(id: number): Observable<T>;
+  getById(id: string): Observable<T>;
   save(t: T, image?:File): Observable<any>;
-  delete(id: number): Observable<void>;
+  delete(id: string): Observable<void>;
   listUpdated(): Observable<boolean>;
 
 }
