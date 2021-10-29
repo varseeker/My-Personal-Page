@@ -8,7 +8,7 @@ import { RequestInterceptor } from './shared/interceptors/request.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
