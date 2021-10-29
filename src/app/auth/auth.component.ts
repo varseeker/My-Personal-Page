@@ -44,7 +44,7 @@ export class AuthComponent implements OnInit, Validation {
       .sigin(this.credentials.value)
       .subscribe((response:any) => {sessionStorage.setItem('token', response.token);}, console.error)
       // this.storage.setItem('credentials', JSON.stringify(this.credentials.value))
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/dashboard')
     }
   }
 

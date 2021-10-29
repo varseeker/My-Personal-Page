@@ -4,11 +4,11 @@ import { UserComponent } from './user.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'user',
     component: UserComponent,
   },
   {
-    path: ':id',
+    path: 'user/:id',
     component: UserComponent,
   },
 ];
