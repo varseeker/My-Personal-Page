@@ -1,28 +1,81 @@
-<app-header></app-header>
-<div class="container konten shadow p-2" style=" border-radius: 20px;">
-    <div class="row">
-        <div class="col-8">
-            <div class="p-5 bg-white">
-                <div class="container">
-                    <h1 class="display-3">Jumbo heading</h1>
-                    <p class="lead">Jumbo helper text</p>
-                    <hr class="my-2">
-                    <p>More info</p>
-                    <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-                    </p>
+<div class="container">
+    <app-header></app-header>
+    <div class="konten shadow justify-content-center">
+        <div class="row justify-content-around py-5 px-4">
+            <div class="col-sm-8 cv card shadow p-3">
+                <h1 class="judul">Our Resume</h1>
+                <hr class="my-2" />
+                <p class="lead fs-5" style="color: #0e3363;">Hey Guys ...</p>
+                <p class="lead" style="color: #0e3363;">We are from <b>Samleke Team</b>. You can see our Resume below
+                </p>
+                <p class="lead" style="color: #0e3363;"></p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #FF971C;">
+                        Click Here
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" (click)="angka = 1"><b>Ahsan</b></a></li>
+                        <li><a class="dropdown-item" (click)="angka = 2"><b>Yanuar</b></a></li>
+                        <li><a class="dropdown-item" (click)="angka = 3"><b>Yazri</b></a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-4">
-            <div class="card text-white bg-secondary">
-                <img class="card-img-top" src="holder.js/100px180/" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Title</h4>
-
+            <div class="col-sm-3 donate card shadow p-3">
+                <h1 class="lead fs-2" style="color: #0e3363;"><b>Donation</b></h1>
+                <hr class="my-1" />
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead style="color: #0e3363;">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td style="color: #FF971C;"><b>100.000</b></td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td style="color: #FF971C;"><b>25.000</b></td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td style="color: #FF971C;"><b>7.000</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <ng-container *ngIf="angka == 1; then satu; else kedua"></ng-container>
+    <ng-template #satu>
+        <div class="konten container shadow-lg p-4">
+            <app-resume-ahsan></app-resume-ahsan>
+        </div>
+    </ng-template>
+    <ng-template #kedua>
+        <ng-container *ngIf="angka == 2; else ketiga">
+            <div class="konten container shadow-lg p-4">
+                <app-resume-yanuar></app-resume-yanuar>
+            </div>
+        </ng-container>
+        <ng-template #ketiga>
+            <ng-container *ngIf="angka == 3; else kosong">
+                <div class="konten container shadow-lg p-4">
+                    <app-resume-yazri></app-resume-yazri>
+                </div>
+            </ng-container>
+            <ng-template #kosong>
+
+            </ng-template>
+        </ng-template>
+    </ng-template>
+
 </div>
 <app-footer></app-footer>
