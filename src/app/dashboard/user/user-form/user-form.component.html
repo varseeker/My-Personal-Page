@@ -1,0 +1,55 @@
+<div class="row p-2">
+    <div class="card shadow">
+        <div class="tittle">
+            <h1 class="fs-3 mt-3 text-center">
+                <span class="text-brown fw-bold">User</span> Form
+            </h1>
+            <hr />
+        </div>
+        <div class="body">
+            <form action="" class="row g-3" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="col-12 has-validation">
+                    <label class="form-label">Fullname</label>
+                    <input type="text" class="form-control {{ isFieldValid('fullName')}}" placeholder="Full Name" formControlName="fullName" />
+                    <div class="invalid-feedback" validation-message [control]="userForm.controls['fullName']" [label]="'Full name'">
+                    </div>
+                </div>
+                <div class="col-md-6 has-validation">
+                    <label class="form-label">User Name</label>
+                    <input type="text" class="form-control {{ isFieldValid('username') }}" placeholder="Username" [readonly]="isValid()" formControlName="username" />
+                    <div class="invalid-feedback" validation-message [control]="userForm.controls['username']" [label]="'Username'">
+                    </div>
+                </div>
+                <div class="col-md-6 has-validation" *ngIf="!id ; else gada">
+                    <label class="form-label">Password</label>
+                    <input type="text" class="form-control {{ isFieldValid('password') }}" placeholder="Password" [readonly]="isValid()" formControlName="password" />
+                    <div class="invalid-feedback" validation-message [control]="userForm.controls['password']" [label]="'Password'">
+                    </div>
+                </div>
+                <ng-template #gada>
+                    <div class="col-md-6"></div>
+                </ng-template>
+                <div class="col-md-5 has-validation">
+                    <label class="form-label">Email</label>
+                    <input type="text" min="1" class="form-control {{ isFieldValid('email') }}" placeholder="Email" formControlName="email" />
+                    <div class="invalid-feedback" validation-message [control]="userForm.controls['email']" [label]="'Email'">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <label class="form-label">Phone</label>
+                    <input type="text" min="1" class="form-control" placeholder="Phone Number" formControlName="phone" />
+                </div>
+                <div class="col-8 mb-3">
+                    <button type="submit" class="btn btn-outline-success me-2 w-100" [disabled]="userForm.invalid">
+        Submit
+      </button>
+                </div>
+                <div class="col-4 mb-3">
+                    <button type="reset" class="btn btn-outline-warning w-100" (click)="onReset()">
+        <i class="fa fa-undo"></i>
+      </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
