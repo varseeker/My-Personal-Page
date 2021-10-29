@@ -1,38 +1,43 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Donation } from 'src/app/shared/models/interface-model';
+import { Donation, ServiceImpl } from 'src/app/shared/models/interface-model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class HomeService {
-
+export class HomeService implements ServiceImpl<Donation> {
+  
   constructor(
     private readonly http: HttpClient
-  ) { }
+  ){}
 
-  private readonly storage: Storage = sessionStorage;
-  private donations: Donation[] = [];
-  private donationSubject: Subject<boolean> = new Subject <boolean>();
-
-  public getAll(): Observable<Donation[]>{
-    return this.http.get<Donation[]>('/api/donations')
+  storage!: Storage;
+  subject!: Subject<boolean>;
+  token!: string;
+  donations: Donation[] = [];
+  
+  getAll(): Observable<Donation[]> {
+    return this.http.get<Donation[]>('/api/donations');
   }
-
-  public createOrUpdate(donation: Donation): Observable<Donation>{
-    if (donation.id) {
-      return this.http.put<Donation>('/api/donations', donation)
+  getById(id: number): Observable<Donation> {
+    return this.http.get<Donation>(`/api/donations/${id}`);
+  }
+  save(t: Donation, image?: File): Observable<any> {
+    if (t.id) {
+      return this.http.put<any>('/api/donations', t)
     } else {
-      return this.http.post<Donation>('/api/donations', donation)
+      return this.http.post<any>('/api/donations', t)
     }
   }
-
-  public delete(id: string): Observable<void> {
+  delete(id: number): Observable<void> {
     return this.http.delete<void>(`/api/donations/${id}`)
   }
-
-  public getById(id: string): Observable<Donation> {
-    return this.http.get<Donation>(`/api/donations/${id}`)
+  updateStorage(): void {
+    this.storage.setItem('donations', JSON.stringify(this.donations));
+    console.log(this.donations);
+  }
+  listUpdated(): Observable<boolean> {
+    return this.subject.asObservable();
   }
 }
