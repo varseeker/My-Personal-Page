@@ -6,17 +6,18 @@ import { BlogComponent } from './blog.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogFormComponent } from './blog-form/blog-form.component';
 import { BlogService } from './service/blog.service';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     BlogComponent,
     BlogListComponent,
-    BlogFormComponent
-  ],
+    BlogFormComponent,
+    ],
   imports: [
     CommonModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [
     BlogService

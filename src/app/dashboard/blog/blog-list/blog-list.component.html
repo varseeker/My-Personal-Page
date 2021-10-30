@@ -1,5 +1,37 @@
-<div class="container shadow">
-    <div class="row">
-        <h1>HEYYO</h1>
+<div class="container mt-5 mb-5 shadow-lg p-4" style="border-radius: 20px;">
+    <div class="row table-responsive">
+        <table class="table">
+            <thead style="color: #0e3363">
+                <tr>
+                    <th scope="col" style="color:  #0e3363">Id Blog</th>
+                    <th scope="col" style="color: #0e3363">Blog Title</th>
+                    <th scope="col" style="color: #0e3363">Author</th>
+                    <th scope="col" style="color: #0e3363">URL</th>
+                    <th scope="col" style="color: #0e3363">Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let blog of blogs">
+                <tr>
+                    <td class="">{{blog.id}}</td>
+                    <td class="">{{blog.title}}</td>
+                    <td class="">{{blog.author}}</td>
+                    <td class="">{{blog.url}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-warning" routerLink="/blog/{{blog.id}}" style="border-width: 2px;">
+                                        <b><i class="fas fa-pen"></i></b></button>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-danger" (click)="onDelete(blog.id!)" style="border-width: 2px;">
+                                        <b><i class="fas fa-trash"></i></b></button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
