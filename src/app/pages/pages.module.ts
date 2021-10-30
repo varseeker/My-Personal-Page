@@ -15,6 +15,7 @@ import { ResumeYanuarComponent } from './home/resume-yanuar/resume-yanuar.compon
 import { HomeService } from './home/service/home.service';
 import { DonationsService } from '../dashboard/donations/service/donations.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactModule } from './contact/contact.module';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PagesRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     HomeService,

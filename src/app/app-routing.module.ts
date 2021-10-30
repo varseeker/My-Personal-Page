@@ -7,7 +7,17 @@ import { RouteGuard } from './shared/guard/route.guard';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+  },
+  {
+    path: 'blog',
+    loadChildren: () =>
+      import('./pages/blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./pages/contact/contact.module').then((m) => m.ContactModule),
   },
   { path: 'dashboard', canActivate:[RouteGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'guest', canActivate:[RouteGuard] , loadChildren: () => import('./dashboard/guest-book/guest-book.module').then(m => m.GuestBookModule) },
@@ -26,7 +36,7 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   },
 ];
 
