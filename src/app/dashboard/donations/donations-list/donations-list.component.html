@@ -1,0 +1,70 @@
+<div class="row p-2">
+    <div class="card shadow">
+        <div class="tittle">
+            <h2 class="fs-3 float-end mt-3 me-3">
+                Total Donations : {{ total | currency: "IDR" }}
+            </h2>
+            <h2 class="fs-3 mt-3 ms-3">
+                <span class="text-brown fw-bold">Donations</span> List
+            </h2>
+            <hr />
+        </div>
+        <div class="body table-responsive">
+            <table class="table table-striped table-hover table-inverse shadow">
+                <thead class="thead-inverse">
+                    <tr class="text-center">
+                        <th>Donate ID</th>
+                        <th>Donor Name</th>
+                        <th>Amount</th>
+                        <th>Message</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <ng-container *ngIf="donations.length > 0; else kosong">
+                    <tbody *ngFor="let donate of donations">
+                        <tr class="text-center">
+                            <td scope="row">
+                                <span class="text-brown">{{ donate.id | uppercase }}</span>
+                            </td>
+                            <td>{{ donate.donor }}</td>
+                            <td>{{ donate.amount | currency: "IDR" }}</td>
+                            <td>{{ donate.message }}</td>
+
+                            <!-- <ng-container *ngIf="donate.status == 'reserved'; then first; else elseTemplate"></ng-container>
+                      <ng-template #first>
+                          <td><span appBadges [color]="'secondary'" [model]="'rounded-pill'">{{donate.status}}</span></td>
+                      </ng-template>
+                      <ng-template #elseTemplate>
+                          <ng-container *ngIf="donate.status == 'checked-in'; else secondElseTemplate">
+                              <td><span appBadges [color]="'primary'" [model]="'rounded-pill'">{{donate.status}}</span></td>
+                          </ng-container>
+                          <ng-template #secondElseTemplate>
+                              <td><span appBadges [color]="'danger'" [model]="'rounded-pill'">{{donate.status}}</span></td>
+                          </ng-template>
+                      </ng-template> -->
+
+                            <!-- ACTION -->
+                            <td>
+                                <button class="btn btn-outline-warning mb-1 col-5 w-100" routerLink="/donate/{{ donate.id }}">
+                  <i class="fas fa-edit"></i>
+                </button>
+                                <button class="btn btn-outline-danger mb-1 col-5 w-100" (click)="onDelete(donate.id!)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </ng-container>
+                <ng-template #kosong>
+                    <tbody>
+                        <tr>
+                            <td colspan="8" rowspan="5" class="text-center mt-2 fs-5 fw-bold">
+                                Data Kosong
+                            </td>
+                        </tr>
+                    </tbody>
+                </ng-template>
+            </table>
+        </div>
+    </div>
+</div>

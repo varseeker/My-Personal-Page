@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EMPTY } from 'rxjs';
 import { delay, map, switchMap } from 'rxjs/operators';
@@ -23,20 +23,21 @@ export class BlogFormComponent implements OnInit {
   });
 
   constructor(
-    private readonly activatedRoute: ActivatedRoute, 
-    private readonly blogService:BlogService, 
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly blogService:BlogService,
     private readonly router:Router) { }
-  
+
   ngOnInit(): void {
     this.getForm()
   }
 
   OnSubmit(): void {
     this.blogForm.get('url')?.setValue(this.blogForm.get('title')?.value)
+    this.blogForm.get('author')?.setValue(this.username);
 
     const blog: Blog = this.blogForm.value;
     console.log(blog);
-    
+
 
     if (blog) {
       blog.url = this.string_to_slug(blog.title);
@@ -55,7 +56,7 @@ export class BlogFormComponent implements OnInit {
   string_to_slug (str: string) {
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();
-  
+
     // remove accents, swap ñ for n, etc
     var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
     var to   = "aaaaeeeeiiiioooouuuunc------";
@@ -76,7 +77,7 @@ export class BlogFormComponent implements OnInit {
       this.blogForm.setValue({
         id: this.id,
         title: blog.title,
-        author: blog.author,
+        author: this.username,
         content: blog.content,
         url: this.string_to_slug(blog.title)
       });
@@ -101,6 +102,55 @@ export class BlogFormComponent implements OnInit {
       }
     ),
     console.error
-  } 
+  }
 
+  isValid(): boolean {
+    if (this.blogForm.get('id')?.value) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isFieldValid(fieldName: string): string {
+    const control: AbstractControl = this.blogForm.get(
+      fieldName
+    ) as AbstractControl;
+
+    if (control && control.touched && control.invalid) {
+      return 'is-invalid';
+    } else if (control && control.valid) {
+      return 'is-valid';
+    } else {
+      return '';
+    }
+  }
+
+  displayErrors(fieldName: string): string {
+    const control: AbstractControl = this.blogForm.get(
+      fieldName
+    ) as AbstractControl;
+    const messages: any = {
+      required: 'Field Harus di isi',
+      minlength: 'Field Minimal harus lebih panjang dari {minlength}',
+    };
+
+    if (control && control.errors) {
+      const error = Object.values(control.errors).pop();
+      const key: string = Object.keys(control.errors).pop() as string;
+
+      let message = messages[key];
+
+      console.log(message);
+
+      if (key === 'minlength') {
+        console.log(error);
+
+        message = message.replace('{minlength}', error.requiredLength);
+      }
+      return message;
+    } else {
+      return '';
+    }
+  }
 }

@@ -46,14 +46,12 @@
 
                             <!-- ACTION -->
                             <td>
-                                <div class="row">
-                                    <button class="btn btn-warning btn-sm me-1 mb-1 col-5" routerLink="/user/{{ user.id }}">
-                  <i class="fas fa-edit"></i>
-                </button>
-                                    <button class="btn btn-danger btn-sm ms-1 mb-1 col-5" (click)="onDelete(user.id!)">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-                                </div>
+                                <button class="btn btn-outline-warning mb-1 col-5 w-100" routerLink="/dashboard/{{ user.id }}">
+                                <i class="fas fa-edit"></i>
+                              </button>
+                                <button class="btn btn-outline-danger mb-1 col-5 w-100" (click)="onDelete(user.id!)">
+                                <i class="fas fa-trash-alt"></i>
+                              </button>
                             </td>
                         </tr>
                     </tbody>
