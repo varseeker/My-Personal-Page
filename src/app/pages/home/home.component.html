@@ -1,32 +1,39 @@
 <div class="container">
     <app-header></app-header>
-    <div class="konten shadow">
+    <div class="konten shadow-lg">
         <div class="row justify-content-around py-5 px-4">
             <div class="col-sm-8 cv card shadow p-3">
                 <h1 class="judul">Our Resume</h1>
                 <hr class="my-2" />
-                <p class="lead fs-5" style="color: #0e3363;">Hey Guys ...</p>
-                <p class="lead" style="color: #0e3363;">We are from <b>Samleke Team</b>. You can see our Resume below
+                <p class="lead fs-5" style="color: #0e3363">Hey Guys ...</p>
+                <p class="lead" style="color: #0e3363">
+                    We are from <b>Samleke Team</b>. You can see our Resume below
                 </p>
-                <p class="lead" style="color: #0e3363;"></p>
+                <p class="lead" style="color: #0e3363"></p>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #FF971C;">
+                        data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ff971c">
                         Click Here
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" (click)="angka = 1"><b>Ahsan</b></a></li>
-                        <li><a class="dropdown-item" (click)="angka = 2"><b>Yanuar</b></a></li>
-                        <li><a class="dropdown-item" (click)="angka = 3"><b>Yazri</b></a></li>
+                        <li>
+                            <a class="dropdown-item" (click)="angka = 1"><b>Ahsan</b></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="angka = 2"><b>Yanuar</b></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="angka = 3"><b>Yazri</b></a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-3 donate card shadow p-3">
-                <h1 class="lead fs-2" style="color: #0e3363;"><b>Donation</b></h1>
+                <h1 class="lead fs-2" style="color: #0e3363"><b>Donation</b></h1>
                 <hr class="my-1" />
                 <div class="table-responsive">
                     <table class="table table-sm">
-                        <thead style="color: #0e3363;">
+                        <thead style="color: #0e3363">
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Amount</th>
@@ -35,19 +42,26 @@
                         <tbody>
                             <tr>
                                 <td>Mark</td>
-                                <td style="color: #FF971C;"><b>100.000</b></td>
+                                <td style="color: #ff971c"><b>100.000</b></td>
                             </tr>
                             <tr>
                                 <td>Jacob</td>
-                                <td style="color: #FF971C;"><b>25.000</b></td>
+                                <td style="color: #ff971c"><b>25.000</b></td>
                             </tr>
                             <tr>
                                 <td>Mark</td>
-                                <td style="color: #FF971C;"><b>7.000</b></td>
+                                <td style="color: #ff971c"><b>7.000</b></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                    <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #ff971c">
+                        Donate Us !
+                    </button>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -69,13 +83,67 @@
                             <app-resume-yazri></app-resume-yazri>
                         </div>
                     </ng-container>
-                    <ng-template #kosong>
-
-                    </ng-template>
+                    <ng-template #kosong> </ng-template>
                 </ng-template>
             </ng-template>
         </div>
-    </div>
-
+        <div class="container shadow-lg">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: #0e3363">
+                                Donation Form
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body table-responsive">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label" style="color: #0e3363">Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Name" aria-describedby="emailHelp" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label"
+                                        style="color: #0e3363">Amount</label>
+                                    <input type="text" class="form-control" placeholder="Enter Amount"/>
+                                </div>
+                                <div class="mb-3 justify-content-center">
+                                    <div class="form-check my-2">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1" />
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            <span class="badge rounded-pill transfer-bank">Transfer Bank</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check my-2">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked />
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            <span class="badge rounded-pill ovo">OVO</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check my-2">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1" />
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            <span class="badge rounded-pill gopay">Gopay</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="col-sm-4 d-flex justify-content-center">
+                                        <button type="submit" class="btn" style="background-color: #ff971c; color: white">
+                                            <b>Submit</b>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
 </div>
 <app-footer></app-footer>

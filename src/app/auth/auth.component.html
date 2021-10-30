@@ -9,8 +9,8 @@
             <div class="login-form ">
                 <form [formGroup]="credentials" (ngSubmit)="onSignIn()">
                     <div class="form-group ms-4 mb-3 has-validation">
-                        <label>User Name</label>
-                        <input type="text " class="form-control is-valid" placeholder="User Name" formControlName="username" [ngClass]="isFieldValid('username')">
+                        <label>Username</label>
+                        <input type="text " class="form-control is-valid" placeholder="Username" formControlName="username" [ngClass]="isFieldValid('username')">
                         <div class="invalid-feedback" validation-message [control]="credentials.controls['username']" [label]="'Username'"></div>
                     </div>
                     <div class="form-group mb-3 ms-4 has-validation">
