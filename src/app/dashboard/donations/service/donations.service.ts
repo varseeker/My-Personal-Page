@@ -26,13 +26,13 @@ export class DonationsService {
 
   public getAll(): Observable<Donation[]> {
     return this.http
-      .get<Donation[]>('/api/guest-book')
+      .get<Donation[]>('/api/donations')
       .pipe(catchError((error) => this.handleError(error)));
   }
 
   public getById(id: string): Observable<Donation> {
     return this.http
-      .get<Donation>(`/api/guest-book/${id}`)
+      .get<Donation>(`/api/donations/${id}`)
       .pipe(catchError((error) => this.handleError(error)));
   }
 
@@ -40,14 +40,14 @@ export class DonationsService {
     if (Donation.id) {
       console.log(Donation);
       return this.http
-        .put<Donation>(`/api/guest-book`, Donation)
+        .put<Donation>(`/api/donations`, Donation)
         .pipe(catchError((error) => this.handleError(error)),
         map((data)=> this.subject.next(true)),
         );
     } else {
       console.log(Donation);
       return this.http
-        .post<Donation>(`/api/guest-book`, Donation)
+        .post<Donation>(`/api/donations`, Donation)
         .pipe(
           catchError((error) => this.handleError(error)),
           map((data)=> this.subject.next(true)),

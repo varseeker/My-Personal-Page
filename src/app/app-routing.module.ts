@@ -15,9 +15,9 @@ const routes: Routes = [
       import('./pages/pages.module').then((m) => m.PagesModule),
   },
   { path: '', canActivate:[RouteGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
-  { path: 'guest', loadChildren: () => import('./dashboard/guest-book/guest-book.module').then(m => m.GuestBookModule) },
-  { path: 'donate', loadChildren: () => import('./dashboard/donations/donations.module').then(m => m.DonationsModule) },
-  { path: 'blog', loadChildren: () => import('./dashboard/blog/blog.module').then(m => m.BlogModule) },
+  { path: 'guest', canActivate:[RouteGuard] , loadChildren: () => import('./dashboard/guest-book/guest-book.module').then(m => m.GuestBookModule) },
+  { path: 'donate', canActivate:[RouteGuard] ,loadChildren: () => import('./dashboard/donations/donations.module').then(m => m.DonationsModule) },
+  { path: 'blog', canActivate:[RouteGuard] ,loadChildren: () => import('./dashboard/blog/blog.module').then(m => m.BlogModule) },
   {
     path: '',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
