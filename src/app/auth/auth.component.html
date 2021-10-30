@@ -1,16 +1,17 @@
 <div class="container konten shadow p-3">
     <div class="row">
         <div class="col-4 bekgron">
-            <img src="../../assets/image/login.jpg" class="img-thumbnail rounded mx-auto d-block gambar" alt="">
+            <img src="../../assets/img/login.jpg" class="img-thumbnail rounded mx-auto d-block gambar" alt="">
         </div>
         <div class="col-8">
+            <button class="btn btn-outline-primary mt-2 ms-4 mb-3 float-end" routerLink="/">HOME</button>
             <h1 class="mt-4">LOGIN</h1>
             <hr>
             <div class="login-form ">
                 <form [formGroup]="credentials" (ngSubmit)="onSignIn()">
                     <div class="form-group ms-4 mb-3 has-validation">
-                        <label>User Name</label>
-                        <input type="text " class="form-control is-valid" placeholder="User Name" formControlName="username" [ngClass]="isFieldValid('username')">
+                        <label>Username</label>
+                        <input type="text " class="form-control is-valid" placeholder="Username" formControlName="username" [ngClass]="isFieldValid('username')">
                         <div class="invalid-feedback" validation-message [control]="credentials.controls['username']" [label]="'Username'"></div>
                     </div>
                     <div class="form-group mb-3 ms-4 has-validation">
@@ -18,8 +19,8 @@
                         <input type="password" class="form-control is-valid" placeholder="Password" formControlName="password" [ngClass]="isFieldValid('password')">
                         <div class="invalid-feedback" validation-message [control]="credentials.controls['password']" [label]="'Password'"></div>
                     </div>
-                    <button type="submit " class="btn btn-dark mt-2 ms-4 mb-3 " [disabled]="credentials.invalid ">Login</button>
-                    <button type="submit " class="btn btn-secondary mt-2 ms-4 mb-3 ">Register</button>
+                    <button type="submit" class="btn btn-dark mt-2 ms-4 mb-3 " [disabled]="credentials.invalid ">Login</button>
+                    <button type="submit" class="btn btn-secondary mt-2 ms-4 mb-3 ">Register</button>
                 </form>
             </div>
         </div>

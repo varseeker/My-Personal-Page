@@ -9,10 +9,10 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/user']" routerLinkActive="router-link-active">User</a>
+                <li class="nav-item" *ngIf="isLoggedIn()">
+                    <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="router-link-active"><b>Dashboard</b></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" [routerLink]="['pages/about']"><b>About</b></a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/about']"><b>About</b></a></li>
                 <li class="nav-item"><a class="nav-link" [routerLink]="['/blog']"><b>Blog</b></a></li>
                 <li class="nav-item" *ngIf="!isLoggedIn()">
                     <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active"><b>Login</b></a>

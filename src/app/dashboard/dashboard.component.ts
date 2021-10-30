@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  show: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  showUser(){
+    if (this.show) {
+      this.show = false
+    }else{
+      this.show = true
+    }
+  }
 }
