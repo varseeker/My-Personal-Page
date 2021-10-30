@@ -27,7 +27,6 @@ export class BlogListComponent implements OnInit {
   }
 
   getAll(){
-
     this.subscriber = {
       next: (data: any) => {this.blogs = data, console.log(data)},
       error: console.error,
@@ -47,5 +46,16 @@ export class BlogListComponent implements OnInit {
     };
 
     this.blogService.delete(id).subscribe(this.subscriber);
+  }
+
+  onEdit(id: string){
+    
+    this.subscriber = {
+      next: (blog:Blog) => (console.log(blog)),
+      error: console.error,
+      complete: () => { console.log},
+    };
+
+    this.blogService.save(id).subscribe(this.subscriber)
   }
 }
