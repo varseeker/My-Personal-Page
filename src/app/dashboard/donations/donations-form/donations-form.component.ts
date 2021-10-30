@@ -12,7 +12,7 @@ import { DonationsService } from '../service/donations.service';
   styleUrls: ['./donations-form.component.scss']
 })
 export class DonationsFormComponent implements OnInit {
-  id!: string;  
+  id!: string;
   donateForm: FormGroup = new FormGroup({
     donor: new FormControl(null, [Validators.required]),
     amount: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -68,7 +68,7 @@ export class DonationsFormComponent implements OnInit {
         error: console.error,
         complete: () => {}
       })
-      this.router.navigateByUrl('/donate')
+      this.router.navigateByUrl('/dashboard/donate')
     }
 
 

@@ -1,127 +1,90 @@
 <div class="container">
-  <app-header></app-header>
-  <div class="konten shadow-lg">
-    <div class="row justify-content-around py-5 px-4">
-      <div class="col-sm-8 cv card shadow p-3">
-        <h1 class="judul">Our Resume</h1>
-        <hr class="my-2" />
-        <p class="lead fs-5" style="color: #0e3363">Hey Guys ...</p>
-        <p class="lead" style="color: #0e3363">
-          We are from <b>Samleke Team</b>. You can see our Resume below
-        </p>
-        <p class="lead" style="color: #0e3363"></p>
-        <div class="dropdown">
-          <button
-            class="btn dropdown-toggle text-white"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            style="background-color: #ff971c"
-          >
+    <app-header></app-header>
+    <div class="konten shadow-lg">
+        <div class="row justify-content-around py-5 px-4">
+            <div class="col-sm-8 cv card shadow p-3">
+                <h1 class="judul">Our Resume</h1>
+                <hr class="my-2" />
+                <p class="lead fs-5" style="color: #0e3363">Hey Guys ...</p>
+                <p class="lead" style="color: #0e3363">
+                    We are from <b>Samleke Team</b>. You can see our Resume below
+                </p>
+                <p class="lead" style="color: #0e3363"></p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ff971c">
             Click Here
           </button>
-          <ul
-            class="dropdown-menu dropdown-menu-dark"
-            aria-labelledby="dropdownMenuButton2"
-          >
-            <li>
-              <a class="dropdown-item" (click)="angka = 1"><b>Ahsan</b></a>
-            </li>
-            <li>
-              <a class="dropdown-item" (click)="angka = 2"><b>Yanuar</b></a>
-            </li>
-            <li>
-              <a class="dropdown-item" (click)="angka = 3"><b>Yazri</b></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-3 donate card shadow p-3">
-        <h1 class="lead fs-2" style="color: #0e3363"><b>Donation</b></h1>
-        <hr class="my-1" />
-        <div class="table-responsive">
-          <table class="table table-sm">
-            <thead style="color: #0e3363">
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Amount</th>
-              </tr>
-            </thead>
-            <ng-container *ngIf="donations.length > 0; else kosong">
-              <tbody>
-                <tr *ngFor="let item of donations | slice: 0:10">
-                  <td>{{ item.donor }}</td>
-                  <td style="color: #ff971c">
-                    <b>{{ item.amount }}</b>
-                  </td>
-                </tr>
-              </tbody>
-            </ng-container>
-          </table>
-          <ng-template #kosong>
-            <tbody>
-              <tr>
-                <td
-                  colspan="8"
-                  rowspan="5"
-                  class="text-center mt-2 fs-5 fw-normal"
-                  style="color: #0e3363"
-                >
-                  No donored yet <i class="fas fa-sad-cry"></i>
-                </td>
-              </tr>
-            </tbody>
-          </ng-template>
-          <div class="d-flex justify-content-center">
-            <button
-              type="submit"
-              style="background-color: #ff971c"
-              class="btn text-white mb-4"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              data-bs-whatever="@getbootstrap"
-            >
-              <i class="fas fa-coffee"></i> | Buy us some coffe!
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li>
+                            <a class="dropdown-item" (click)="angka = 1"><b>Ahsan</b></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="angka = 2"><b>Yanuar</b></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="angka = 3"><b>Yazri</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3 donate card shadow p-3">
+                <h1 class="lead fs-2" style="color: #0e3363"><b>Donation</b></h1>
+                <hr class="my-1" />
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead style="color: #0e3363">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <ng-container *ngIf="donations.length > 0; else kosong">
+                            <tbody>
+                                <tr *ngFor="let item of donations | slice: 0:10">
+                                    <td>{{ item.donor }}</td>
+                                    <td style="color: #ff971c">
+                                        <b>{{ item.amount }}</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                    </table>
+                    <ng-template #kosong>
+                        <tbody>
+                            <tr>
+                                <td colspan="8" rowspan="5" class="text-center mt-2 fs-5 fw-normal" style="color: #0e3363">
+                                    No donored yet <i class="fas fa-sad-cry"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </ng-template>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" style="background-color: #ff971c" class="btn text-white mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+              <i class="fas fa-coffee"></i>
+              <span class="border-start ms-3 border-3 border-white p-2">
+                Buy us some coffee!</span
+              >
+              <i class="fas fa-smile-wink fs-6"></i>
             </button>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="container shadow-lg">
-      <div class="row">
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5
-                  class="modal-title"
-                  id="exampleModalLabel"
-                  style="color: #0e3363"
-                >
-                  Donation Form
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
-                <div class="modal-body table-responsive">
-                  <div class="mb-3">
-                    <label
-                      for="recipient-name"
-                      class="col-form-label"
-                      style="color: #0e3363"
-                      >Donor:</label
+        <div class="container shadow-lg">
+            <div class="row">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: #0e3363">
+                                    Donation Form
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+                                <div class="modal-body table-responsive">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label" style="color: #0e3363">Donor:</label
                     >
                     <input
                       type="text"
@@ -176,6 +139,84 @@
                     [control]="donateForm.controls['amount']"
                     [label]="'Amount'"
                   ></div>
+                  <div
+                    _ngcontent-jov-c58=""
+                    class="mb-3 justify-content-center"
+                  >
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault1"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill transfer-bank"
+                          >Transfer Bank</span
+                        ></label
+                      >
+                    </div>
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                        checked=""
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault2"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill ovo"
+                          >OVO</span
+                        ></label
+                      >
+                    </div>
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault3"
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault3"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill gopay"
+                          >Gopay</span
+                        ></label
+                      >
+                    </div>
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault4"
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault4"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill link-aja"
+                          >Link Aja</span
+                        ></label
+                      >
+                    </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button
@@ -205,10 +246,11 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5
-                class="modal-title"
-                id="exampleModalLabel"
-              >Hey! <i style="color: #ff8902">{{ donateForm.get("donor")!.value }}</i>
+              <h5 class="modal-title" id="exampleModalLabel">
+                Hey!
+                <i style="color: #ff8902">{{
+                  donateForm.get("donor")!.value
+                }}</i>
               </h5>
               <button
                 type="button"
@@ -235,7 +277,7 @@
               </div>
               <p class="d-flex justify-content-center mt-4">
                 <i style="color: #0e3363">
-                    " {{donateForm.get("message")!.value}} "
+                  " {{ donateForm.get("message")!.value }} "
                 </i>
               </p>
             </div>

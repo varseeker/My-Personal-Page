@@ -2,36 +2,36 @@
     <div class="card shadow">
         <div class="tittle">
             <h1 class="fs-3 mt-3 text-center">
-                <span class="text-brown fw-bold">Guest Book</span> Form
+                <span style="color: #0e3363">Guest </span><span style="color: #FF971C">Form</span>
             </h1>
             <hr />
         </div>
         <div class="body">
             <form action="" class="row g-3" [formGroup]="guestForm" (ngSubmit)="onSubmit()">
                 <div class="col-md-6 has-validation">
-                    <label class="form-label">Guest Book Name</label>
+                    <label class="form-label"><b>Guest Book Name</b></label>
                     <input type="text" class="form-control {{ isFieldValid('name') }}" placeholder="Guest Name" [readonly]="isValid()" formControlName="name" />
                     <div class="invalid-feedback" validation-message [control]="guestForm.controls['name']" [label]="'Name'">
                     </div>
                 </div>
                 <div class="col-md-6 has-validation">
-                    <label class="form-label">Email</label>
+                    <label class="form-label"><b>Email</b></label>
                     <input type="text" min="1" class="form-control {{ isFieldValid('email') }}" placeholder="Email" formControlName="email" />
                     <div class="invalid-feedback" validation-message [control]="guestForm.controls['email']" [label]="'Email '">
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <label class="form-label">Message</label>
+                    <label class="form-label"><b>Message</b></label>
                     <input type="text" min="1" class="form-control" placeholder="Message" formControlName="message" />
                 </div>
                 <div class="col-8 mb-3">
                     <button type="submit" class="btn btn-outline-success me-2 w-100" [disabled]="guestForm.invalid">
-      Submit
+      <b>Submit</b>
     </button>
                 </div>
                 <div class="col-4 mb-3">
                     <button type="reset" class="btn btn-outline-warning w-100" (click)="onReset()">
-      <i class="fa fa-undo"></i>
+      <b><i class="fa fa-undo"></i></b>
     </button>
                 </div>
             </form>

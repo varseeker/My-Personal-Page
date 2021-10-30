@@ -15,7 +15,7 @@ import { ResumeYanuarComponent } from './home/resume-yanuar/resume-yanuar.compon
 import { HomeService } from './home/service/home.service';
 import { DonationsService } from '../dashboard/donations/service/donations.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContactModule } from './contact/contact.module';
+import { BlogPublicComponent } from './blog-public/blog-public.component';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { ContactModule } from './contact/contact.module';
     ResumeAhsanComponent,
     AsideComponent,
     ContentComponent,
-    ResumeYanuarComponent
+    ResumeYanuarComponent,
   ],
   imports: [
     CommonModule,

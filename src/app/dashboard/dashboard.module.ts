@@ -7,6 +7,9 @@ import { UserModule } from './user/user.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -14,17 +17,21 @@ import { RouterModule } from '@angular/router';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     UserModule,
-    RouterModule
+    RouterModule,
+    SharedModule,
+    DataTablesModule
   ],
   exports: [
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
+    NavbarComponent,
   ]
 })
 export class DashboardModule { }

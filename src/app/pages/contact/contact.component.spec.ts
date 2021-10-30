@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from 'src/app/app.component';
@@ -46,3 +47,5 @@ describe('ContanctComponent', () => {
     expect(item).toBeTruthy;
   });
 });
+=======
+>>>>>>> origin/master

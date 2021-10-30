@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  selector: 'app-blog-public',
+  templateUrl: './blog-public.component.html',
+  styleUrls: ['./blog-public.component.scss']
 })
 export class BlogPublicComponent implements OnInit {
 

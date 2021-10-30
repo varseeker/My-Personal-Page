@@ -16,11 +16,11 @@ export class BlogService{
 
 
   getAll(): Observable<Blog[]>{
-    return this.httpCLient.get<Blog[]>('api/pages/group5/blogs')
+    return this.httpCLient.get<Blog[]>('/api/pages/group5/blogs')
   }
 
   getById(url: string): Observable<Blog>{
-    return this.httpCLient.get<Blog>(`api/pages/group5/blogs/${url}`)
-  } 
+    return this.httpCLient.get<Blog>(`/api/pages/group5/blogs/read/${url}`)
+  }
 
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observer } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { BlogService } from 'src/app/dashboard/blog/service/blog.service';
 import { Blog } from 'src/app/shared/models/interface-model';
+import { BlogService } from '../../service/blog.service';
 
 @Component({
   selector: 'app-list-blog',

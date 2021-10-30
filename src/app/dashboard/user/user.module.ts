@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { UserService } from './service/user.service';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UserService } from './service/user.service';
     UserRoutingModule,
     ReactiveFormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    DataTablesModule
   ],
   exports: [
     UserComponent,

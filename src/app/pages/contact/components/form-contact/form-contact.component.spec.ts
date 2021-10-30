@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { GuestBook } from 'src/app/shared/models/interface-model';
 import { ContactServiceService } from '../../service/contact-service.service';
@@ -75,3 +76,5 @@ describe('FormContactComponent()', () => {
   })
 
 });
+=======
+>>>>>>> origin/master

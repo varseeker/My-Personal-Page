@@ -8,6 +8,7 @@ import { DonationsFormComponent } from './donations-form/donations-form.componen
 import { DashboardModule } from '../dashboard.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataTableDirective, DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DonationsRoutingModule,
     ReactiveFormsModule,
     DashboardModule,
-    SharedModule
+    SharedModule,
+    DataTablesModule
   ]
 })
 export class DonationsModule { }
