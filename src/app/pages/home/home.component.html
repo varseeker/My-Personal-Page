@@ -32,17 +32,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Mark</td>
-                                <td style="color: #FF971C;"><b>100.000</b></td>
-                            </tr>
-                            <tr>
-                                <td>Jacob</td>
-                                <td style="color: #FF971C;"><b>25.000</b></td>
-                            </tr>
-                            <tr>
-                                <td>Mark</td>
-                                <td style="color: #FF971C;"><b>7.000</b></td>
+                            <tr *ngFor="let donate of donations">
+                                <td>{{donate.donor}}</td>
+                                <td style="color: #FF971C;"><b>{{donate.amount}}</b></td>
                             </tr>
                         </tbody>
                     </table>
@@ -66,22 +58,26 @@
               <h5 class="modal-title" id="exampleModalLabel">Donate Form</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
             <div class="modal-body">
-              <form>
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Donor:</label>
-                  <input type="text" class="form-control" id="recipient-name">
+                  <input type="text" class="form-control" id="recipient-name" formControlName="donor">
                 </div>
                 <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Amount:</label>
+                    <input type="text" class="form-control" id="recipient-name" formControlName="amount">
+                  </div>
+                <div class="mb-3">
                   <label for="message-text" class="col-form-label">Message:</label>
-                  <textarea class="form-control" id="message-text"></textarea>
+                  <textarea class="form-control" id="message-text" formControlName="message"></textarea>
                 </div>
-              </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send message</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Send message</button>              
             </div>
+        </form>
           </div>
         </div>
       </div>
