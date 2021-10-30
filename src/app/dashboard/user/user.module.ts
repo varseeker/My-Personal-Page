@@ -8,6 +8,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { UserService } from './service/user.service';
 
 
 @NgModule({
@@ -27,6 +28,9 @@ import { RouterModule } from '@angular/router';
     UserComponent,
     UserFormComponent,
     UserListComponent
+  ],
+  providers: [
+    UserService
   ]
 })
 export class UserModule { }
