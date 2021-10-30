@@ -44,12 +44,11 @@ export class BlogListComponent implements OnInit {
       error: console.error,
       complete: () => { console.log},
     };
-
     this.blogService.delete(id).subscribe(this.subscriber);
   }
 
   onEdit(id: string){
-    
+
     this.subscriber = {
       next: (blog:Blog) => (console.log(blog)),
       error: console.error,

@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
+  show: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showBlog(){
+    if (this.show) {
+      this.show = false
+    }else{
+      this.show = true
+    }
   }
 
 }

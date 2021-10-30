@@ -56,7 +56,10 @@ export class GuestbookService {
   }
 
   public delete(id: string): Observable<any> {
-    return this.http.delete(`/api/GuestBooks/${id}`);
+    return this.http.delete(`/api/guest-book/${id}`).pipe(
+      catchError((error) => this.handleError(error)),
+      map((data)=> this.subject.next(true)),
+    );
   }
 
   /**

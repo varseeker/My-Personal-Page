@@ -56,7 +56,10 @@ export class DonationsService {
   }
 
   public delete(id: string): Observable<any> {
-    return this.http.delete(`/api/Donations/${id}`);
+    return this.http.delete(`/api/Donations/${id}`).pipe(
+      catchError((error) => this.handleError(error)),
+      map((data)=> this.subject.next(true)),
+    );
   }
 
   /**

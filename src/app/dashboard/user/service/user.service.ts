@@ -56,7 +56,10 @@ export class UserService implements ServiceImpl<User>{
   }
 
   public delete(id: string): Observable<any> {
-    return this.http.delete(`/api/users/${id}`);
+    return this.http.delete(`/api/users/${id}`).pipe(
+      catchError((error) => this.handleError(error)),
+      map((data)=> this.subject.next(true)),
+    );
   }
 
   /**

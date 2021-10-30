@@ -7,6 +7,7 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogFormComponent } from './blog-form/blog-form.component';
 import { BlogService } from './service/blog.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardModule } from '../dashboard.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     BlogRoutingModule,
     ReactiveFormsModule,
+    DashboardModule
   ],
   providers: [
     BlogService
