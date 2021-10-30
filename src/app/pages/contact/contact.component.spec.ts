@@ -21,18 +21,28 @@ describe('ContanctComponent', () => {
   });
 
   it('should create the ContactComponent', () => {
-      fixture = TestBed.createComponent(ContactComponent)
-      const contact = fixture.componentInstance;
-      expect(contact).toBeTruthy;
-  })
+    fixture = TestBed.createComponent(ContactComponent);
+    const contact = fixture.componentInstance;
+    expect(contact).toBeTruthy;
+  });
 
-  it('it should have <Appheader></AppHeader>', () => {
-      const appHeader = element.querySelector('app-header')
-      expect(appHeader).toBeTruthy;
-  })
+  it('it should have <appheader></appheader>', () => {
+    const item = element.querySelector('app-header');
+    expect(item).toBeTruthy;
+  });
 
-  it('it should have <Appheader></AppHeader>', () => {
-    const appHeader = element.querySelector('div')
-    expect(appHeader).toBeTruthy;
-})
+  it('it should have div', () => {
+    const item = element.querySelector('div');
+    expect(item).toBeTruthy;
+  });
+
+  it('should have <app-form-contact></app-form-contact>', () => {
+    const item = element.querySelector('app-form-contact');
+    expect(item).toBeTruthy;
+  });
+
+  it('should have <appfooter></appfooter>', () => {
+    const item = element.querySelector('app-footer');
+    expect(item).toBeTruthy;
+  });
 });
