@@ -3,19 +3,31 @@ import { CommonModule } from '@angular/common';
 
 import { ContactRoutingModule } from './contact-routing.module';
 import { ContactComponent } from './contact.component';
-import { ListContactComponent } from './components/list-contact/list-contact.component';
 import { FormContactComponent } from './components/form-contact/form-contact.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactServiceService } from './service/contact-service.service';
+import { GuestbookService } from 'src/app/dashboard/guest-book/service/guestbook.service';
 
 
 @NgModule({
   declarations: [
     ContactComponent,
-    ListContactComponent,
     FormContactComponent
   ],
   imports: [
     CommonModule,
-    ContactRoutingModule
+    ContactRoutingModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    ContactComponent
+  ],
+  providers: [
+    ContactServiceService,
+    GuestbookService
   ]
 })
 export class ContactModule { }

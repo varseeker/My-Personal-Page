@@ -7,17 +7,43 @@ import { RouteGuard } from './shared/guard/route.guard';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+  },
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./pages/contact/contact.module').then((m) => m.ContactModule),
   },
   {
     path: '',
     loadChildren: () =>
       import('./pages/pages.module').then((m) => m.PagesModule),
   },
-  { path: '', canActivate:[RouteGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
-  { path: 'guest', loadChildren: () => import('./dashboard/guest-book/guest-book.module').then(m => m.GuestBookModule) },
-  { path: 'donate', loadChildren: () => import('./dashboard/donations/donations.module').then(m => m.DonationsModule) },
-  { path: 'blog', loadChildren: () => import('./dashboard/blog/blog.module').then(m => m.BlogModule) },
+  {
+    path: '',
+    canActivate: [RouteGuard],
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+  {
+    path: 'guest',
+    loadChildren: () =>
+      import('./dashboard/guest-book/guest-book.module').then(
+        (m) => m.GuestBookModule
+      ),
+  },
+  {
+    path: 'donate',
+    loadChildren: () =>
+      import('./dashboard/donations/donations.module').then(
+        (m) => m.DonationsModule
+      ),
+  },
+  {
+    path: 'blog',
+    loadChildren: () =>
+      import('./dashboard/blog/blog.module').then((m) => m.BlogModule),
+  },
   {
     path: '',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
@@ -25,7 +51,7 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   },
 ];
 
