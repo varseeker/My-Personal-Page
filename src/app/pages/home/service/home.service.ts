@@ -20,7 +20,7 @@ export class HomeService implements ServiceImpl<Donation> {
   getAll(): Observable<Donation[]> {
     return this.http.get<Donation[]>('/api/donations');
   }
-  getById(id: number): Observable<Donation> {
+  getById(id: string): Observable<Donation> {
     return this.http.get<Donation>(`/api/donations/${id}`);
   }
   save(t: Donation, image?: File): Observable<any> {
@@ -30,7 +30,7 @@ export class HomeService implements ServiceImpl<Donation> {
       return this.http.post<any>('/api/donations', t)
     }
   }
-  delete(id: number): Observable<void> {
+  delete(id: string): Observable<void> {
     return this.http.delete<void>(`/api/donations/${id}`)
   }
   updateStorage(): void {
