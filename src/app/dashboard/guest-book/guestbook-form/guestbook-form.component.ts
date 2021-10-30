@@ -71,7 +71,6 @@ export class GuestbookFormComponent implements OnInit {
       this.router.navigateByUrl('/guest')
     }
 
-
   }
 
   onReset() {}
