@@ -12,11 +12,11 @@
     font-size: 3.2em;
     line-height: 48px;
     padding-bottom: 48px;
-       color: #0297FF;
-      background: #0297FF;
-      background: -moz-linear-gradient(left,#ff8902  0%,#0297FF 100%) !important;
-      background: -webkit-linear-gradient(left,#ff8902  0%,#0297FF 100%) !important;
-      background: linear-gradient(to right,#ff8902  0%,#0297FF  100%) !important;
+       color: #0e3363;
+      background: #0e3363;
+      background: -moz-linear-gradient(left,#0e3363  50%,#ff8902 40%) !important;
+      background: -webkit-linear-gradient(left,#0e3363  50%,#ff8902 40%) !important;
+      background: linear-gradient(to right,#0e3363  50%,#ff8902  40%) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
   }
@@ -30,7 +30,7 @@
     width: 100%;
     height: 36px;
     border-width: 0 0 2px 0;
-    border-color: #0297FF;
+    border-color: #0e3363;
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
@@ -50,7 +50,7 @@
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-    color: #0297FF;
+    color: #0e3363;
     cursor: text;
     transition: -webkit-transform .2s ease-in-out;
     transition: transform .2s ease-in-out;
@@ -60,7 +60,7 @@
   .contact-form .submit-btn {
     display: inline-block;
     background-color: #000;
-     background-image: linear-gradient(125deg,#ff8902,#0297FF);
+     background-image: linear-gradient(125deg,#0e3363 40%,#ff8902);
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
