@@ -10,6 +10,11 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'blog',
+    loadChildren: () =>
+      import('./pages/blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
     path: 'contact',
     loadChildren: () =>
       import('./pages/contact/contact.module').then((m) => m.ContactModule),
@@ -38,11 +43,6 @@ const routes: Routes = [
       import('./dashboard/donations/donations.module').then(
         (m) => m.DonationsModule
       ),
-  },
-  {
-    path: 'blog',
-    loadChildren: () =>
-      import('./dashboard/blog/blog.module').then((m) => m.BlogModule),
   },
   {
     path: '',

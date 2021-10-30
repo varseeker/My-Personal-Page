@@ -17,6 +17,7 @@ const routes: Routes = [
     path: ':id',
     component: PagesComponent,
   },
+  { path: 'pages/blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
 ];
 
 @NgModule({

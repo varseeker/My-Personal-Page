@@ -7,7 +7,6 @@ import { FormContactComponent } from './components/form-contact/form-contact.com
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactServiceService } from './service/contact-service.service';
-import { GuestbookService } from 'src/app/dashboard/guest-book/service/guestbook.service';
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import { GuestbookService } from 'src/app/dashboard/guest-book/service/guestbook
     ContactComponent
   ],
   providers: [
-    ContactServiceService,
-    GuestbookService
+    ContactServiceService
   ]
 })
 export class ContactModule { }
