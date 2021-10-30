@@ -20,6 +20,11 @@ import { RouterModule } from '@angular/router';
     DashboardRoutingModule,
     UserModule,
     RouterModule
+  ],
+  exports: [
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
   ]
 })
 export class DashboardModule { }

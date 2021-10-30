@@ -1,13 +1,16 @@
-<app-header></app-header>
+<app-header-dashboard></app-header-dashboard>
 <div class="content">
     <div class="container shadow">
         <div class="row">
             <div class="col-12">
-                <app-user-form></app-user-form>
+                <button class="btn btn-outline-primary w-100 my-5" (click)="showUser()">
+                SHOW USER MANAGEMENT
+              </button>
             </div>
-            <div class="col-12">
-                <app-user-list></app-user-list>
+            <div class="col-12" *ngIf="show == true">
+                <app-user></app-user>
             </div>
         </div>
     </div>
 </div>
+<app-footer-dashboard></app-footer-dashboard>
