@@ -58,87 +58,113 @@
         </div>
         <div class="container">
             <div class="row">
-                <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #ff971c">
-                        Donate Us !
-                    </button>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <ng-container *ngIf="angka == 1; then satu; else kedua"></ng-container>
-            <ng-template #satu>
-                <div class="container p-5">
-                    <app-resume-ahsan></app-resume-ahsan>
-                </div>
-            </ng-template>
-            <ng-template #kedua>
-                <ng-container *ngIf="angka == 2; else ketiga">
-                    <div class="container p-5">
-                        <app-resume-yanuar></app-resume-yanuar>
-                    </div>
-                </ng-container>
-                <ng-template #ketiga>
-                    <ng-container *ngIf="angka == 3; else kosong">
-                        <div class="container p-5">
-                            <app-resume-yazri></app-resume-yazri>
-                        </div>
-                    </ng-container>
-                    <ng-template #kosong> </ng-template>
-                </ng-template>
-            </ng-template>
-        </div>
-        <div class="container shadow-lg">
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel" style="color: #0e3363">
-                                Donation Form
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body table-responsive">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label" style="color: #0e3363">Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Name" aria-describedby="emailHelp" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label" style="color: #0e3363">Amount</label>
-                                    <input type="text" class="form-control" placeholder="Enter Amount" />
-                                </div>
-                                <div class="mb-3 justify-content-center">
-                                    <div class="form-check my-2">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            <span class="badge rounded-pill transfer-bank">Transfer Bank</span>
-                                        </label>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Donate Form</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Donor:</label>
+                                        <input type="text" class="form-control" id="recipient-name" formControlName="donor">
                                     </div>
-                                    <div class="form-check my-2">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            <span class="badge rounded-pill ovo">OVO</span>
-                                        </label>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Amount:</label>
+                                        <input type="text" class="form-control" id="recipient-name" formControlName="amount">
                                     </div>
-                                    <div class="form-check my-2">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                                        <label class="form-check-label" for="flexRadioDefault3">
-                                            <span class="badge rounded-pill gopay">Gopay</span>
-                                        </label>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" id="message-text" formControlName="message"></textarea>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center">
-                                    <div class="col-sm-4 d-flex justify-content-center">
-                                        <button type="submit" class="btn" style="background-color: #ff971c; color: white">
-                                            <b>Submit</b>
-                                        </button>
-                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Send message</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <ng-container *ngIf="angka == 1; then satu; else kedua"></ng-container>
+                <ng-template #satu>
+                    <div class="container p-5">
+                        <app-resume-ahsan></app-resume-ahsan>
+                    </div>
+                </ng-template>
+                <ng-template #kedua>
+                    <ng-container *ngIf="angka == 2; else ketiga">
+                        <div class="container p-5">
+                            <app-resume-yanuar></app-resume-yanuar>
+                        </div>
+                    </ng-container>
+                    <ng-template #ketiga>
+                        <ng-container *ngIf="angka == 3; else kosong">
+                            <div class="container p-5">
+                                <app-resume-yazri></app-resume-yazri>
+                            </div>
+                        </ng-container>
+                        <ng-template #kosong> </ng-template>
+                    </ng-template>
+                </ng-template>
+            </div>
+            <div class="container shadow-lg">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: #0e3363">
+                                    Donation Form
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body table-responsive">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label" style="color: #0e3363">Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Name" aria-describedby="emailHelp" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label" style="color: #0e3363">Amount</label>
+                                        <input type="text" class="form-control" placeholder="Enter Amount" />
+                                    </div>
+                                    <div class="mb-3 justify-content-center">
+                                        <div class="form-check my-2">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            <span class="badge rounded-pill transfer-bank">Transfer Bank</span>
+                                        </label>
+                                        </div>
+                                        <div class="form-check my-2">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                            <span class="badge rounded-pill ovo">OVO</span>
+                                        </label>
+                                        </div>
+                                        <div class="form-check my-2">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            <span class="badge rounded-pill gopay">Gopay</span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-sm-4 d-flex justify-content-center">
+                                            <button type="submit" class="btn" style="background-color: #ff971c; color: white">
+                                            <b>Submit</b>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<app-footer></app-footer>
+    <app-footer></app-footer>

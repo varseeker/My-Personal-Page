@@ -9,7 +9,12 @@ import { SharedModule } from '../shared/shared.module';
 import { ResumeYazriComponent } from './home/resume-yazri/resume-yazri.component';
 import { AboutComponent } from './about/about.component';
 import { ResumeAhsanComponent } from './home/resume-ahsan/resume-ahsan.component';
+import { AsideComponent } from './home/resume-yanuar/component/aside/aside.component';
+import { ContentComponent } from './home/resume-yanuar/component/content/content.component';
 import { ResumeYanuarComponent } from './home/resume-yanuar/resume-yanuar.component';
+import { HomeService } from './home/service/home.service';
+import { DonationsService } from '../dashboard/donations/service/donations.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,12 +25,20 @@ import { ResumeYanuarComponent } from './home/resume-yanuar/resume-yanuar.compon
     ResumeYazriComponent,
     AboutComponent,
     ResumeAhsanComponent,
+    AsideComponent,
+    ContentComponent,
     ResumeYanuarComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
+  providers: [
+    HomeService,
+    DonationsService
+  ]
 })
 export class PagesModule { }
