@@ -20,7 +20,7 @@ export class RouteGuard implements CanActivate {
     const authorize: boolean = (sessionStorage.getItem('token') !== null)
     if (!authorize) {
       alert(`You dont have any permission here !`)
-      this.router.navigateByUrl('/auth');
+      this.router.navigateByUrl('/');
     }
     return authorize;
   }
