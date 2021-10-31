@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -24,6 +25,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UserModule,
     RouterModule,
     SharedModule,
+<<<<<<< HEAD
+=======
+    DataTablesModule
+>>>>>>> [AHSAN] Finish setting docker and progress unit testing
   ],
   exports: [
     DashboardComponent,

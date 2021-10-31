@@ -25,7 +25,10 @@
         "bootstrap": "^5.1.3",
         "datatables.net": "^1.11.3",
         "datatables.net-dt": "^1.11.3",
+<<<<<<< HEAD
         "dependencies": "^0.0.1",
+=======
+>>>>>>> [AHSAN] Finish setting docker and progress unit testing
         "jquery": "^3.6.0",
         "rxjs": "~6.6.0",
         "tslib": "^2.3.0",

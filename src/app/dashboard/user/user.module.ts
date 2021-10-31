@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { UserService } from './service/user.service';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -23,6 +24,10 @@ import { UserService } from './service/user.service';
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
+<<<<<<< HEAD
+=======
+    DataTablesModule
+>>>>>>> [AHSAN] Finish setting docker and progress unit testing
   ],
   exports: [
     UserComponent,

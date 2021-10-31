@@ -12,6 +12,7 @@ import { ResumeAhsanComponent } from './home/resume-ahsan/resume-ahsan.component
 import { HomeService } from './home/service/home.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResumeYanuarModule } from './home/resume-yanuar/resume-yanuar.module';
+import { BlogPublicComponent } from './blog-public/blog-public.component';
 
 
 @NgModule({

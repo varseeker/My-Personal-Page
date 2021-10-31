@@ -103,9 +103,10 @@ export class DonationsFormComponent implements OnInit {
       fieldName
     ) as AbstractControl;
     const messages: any = {
-      required: 'Field Harus di isi',
-      min: 'Field harus lebih besar dari {min} atau bilangan bulat',
-      minlength: 'Field Minimal harus lebih panjang dari {minlength}',
+      required: 'Field is required here',
+      email: 'Field format must be like this: example@example.com',
+      min: 'Field must greater than {min} or an integer',
+      minlength: 'Minimum field must greater than {minlength}'
     };
 
     if (control && control.errors) {

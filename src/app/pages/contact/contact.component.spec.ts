@@ -1,8 +1,10 @@
+
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppComponent } from 'src/app/app.component';
 import { ContactComponent } from './contact.component';
 
-describe('ContactComponent()', () => {
+describe('ContanctComponent', () => {
   let element: HTMLElement;
   let fixture: ComponentFixture<ContactComponent>;
   let component: ContactComponent;
@@ -19,29 +21,29 @@ describe('ContactComponent()', () => {
     debug = fixture.debugElement;
   });
 
-  it('Should Create the ContactComponent', () => {
+  it('should create the ContactComponent', () => {
     fixture = TestBed.createComponent(ContactComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    const contact = fixture.componentInstance;
+    expect(contact).toBeTruthy;
   });
 
-  it('Should have <app-header></app-header>', () => {
-    const appHeader = element.querySelector('app-header');
-    expect(appHeader).toBeTruthy();
+  it('it should have <appheader></appheader>', () => {
+    const item = element.querySelector('app-header');
+    expect(item).toBeTruthy;
   });
 
-  it('Should have <app-footer></app-footer>', () => {
-    const appFooter = element.querySelector('app-footer');
-    expect(appFooter).toBeTruthy();
+  it('it should have div', () => {
+    const item = element.querySelector('div');
+    expect(item).toBeTruthy;
   });
 
-  // it('Should have <app-form-contact></app-form-contact>', () => {
-  //   const appForm = element.querySelector('app-form-contact');
-  //   expect(appForm).toBeTruthy();
-  // });
+  it('should have <app-form-contact></app-form-contact>', () => {
+    const item = element.querySelector('app-form-contact');
+    expect(item).toBeTruthy;
+  });
 
-  it('Should have div', () => {
-    const div = element.querySelector('div');
-    expect(div).toBeTruthy();
+  it('should have <appfooter></appfooter>', () => {
+    const item = element.querySelector('app-footer');
+    expect(item).toBeTruthy;
   });
 });
