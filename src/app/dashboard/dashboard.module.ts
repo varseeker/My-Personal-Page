@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
+    NavbarComponent,
   ]
 })
 export class DashboardModule { }

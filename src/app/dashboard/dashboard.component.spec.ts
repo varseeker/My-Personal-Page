@@ -31,12 +31,21 @@ describe('', ()=> {
     expect(dashboard.show).toBeTruthy();
   })
 
-  it('DashboardComponet Should return show true when created', ()=>{
+  it('DashboardComponet Should return show true after showUser(), when init show is false', ()=>{
     fixture = TestBed.createComponent(DashboardComponent)
     const dashboard = fixture.componentInstance;
     dashboard.show = false;
     dashboard.showUser()
     fixture.detectChanges();
     expect(dashboard.show).toBeTruthy();
+  })
+
+  it('DashboardComponet Should return show false after showUser(), when init show is true', ()=>{
+    fixture = TestBed.createComponent(DashboardComponent)
+    const dashboard = fixture.componentInstance;
+    dashboard.show = true;
+    dashboard.showUser()
+    fixture.detectChanges();
+    expect(dashboard.show).toBeFalsy();
   })
 })
