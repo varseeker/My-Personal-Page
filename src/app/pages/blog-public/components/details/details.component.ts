@@ -24,14 +24,16 @@ export class DetailsComponent implements OnInit {
   getForm() {
     this.activatedRoute.params
     .pipe(
-      map((param)=> param.id),
+      map((param)=> param.url),
       delay(500),
-      switchMap((id: string) => {
-        if (!id) return EMPTY;
-        else return  this.id = id, this.blogService.getById(id);
+      switchMap((url: string) => {
+        if (!url) return EMPTY;
+        else return  this.id = url, this.blogService.getById(url);
       })
     ).subscribe((blog: any) => {
       if (blog) {
+        this.blog = blog
+        console.log(blog);
 
       }
     }, console.error,
