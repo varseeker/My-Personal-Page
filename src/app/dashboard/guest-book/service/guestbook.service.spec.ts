@@ -1,72 +1,115 @@
-import {
-    HttpClientTestingModule,
-    HttpTestingController,
-} from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { GuestBook } from 'src/app/shared/models/interface-model';
-import { GuestBookComponent } from '../guest-book.component';
-import { GuestbookService } from './guestbook.service';
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { TestBed } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { GuestBook } from "src/app/shared/models/interface-model";
+import { GuestbookService } from "./guestbook.service";
 
-describe('GuestBookService with HTTP Service ', () => {
-    let guestBookService: GuestbookService;
-    let httpMock: HttpTestingController;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [GuestBookComponent],
-            imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([])],
-            providers: [GuestbookService],
-        });
-        guestBookService = TestBed.inject(GuestbookService);
-        httpMock = TestBed.inject(HttpTestingController);
+describe('GuestbookService', () => {
+  let service: GuestbookService;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([])],
+      providers: [GuestbookService]
     });
+  });
+  beforeEach(() => {
+    httpMock = TestBed.inject(HttpTestingController);
+    service = TestBed.inject(GuestbookService);
 
-    afterEach(() => {
-        httpMock.verify();
-    });
+  })
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
 
-    it('Blog service created', () => {
-        expect(GuestbookService).toBeDefined();
-    });
+  it('Should return Observable<any> in POST method', () => {
+    const url = '/api/guest-book';
+    const mockDonations: GuestBook = {
+      name: 'halo',
+      email: 'halo@halo',
+      message: 'Hallo bang'
+    }
+    service.save(mockDonations).subscribe(
+      (respon: any) => {
+        expect(respon).toBeDefined();
+      }
+    )
+    const request = httpMock.expectOne(url);
+    expect(request.request.method).toBe('POST');
+    expect(request.request.body).toEqual(mockDonations)
+  })
 
-    it('Blog service have a getAll() method', () => {
-        expect(guestBookService.getAll).toBeDefined();
-    });
+  it('Should return Observable<any> in PUT method', () => {
+    const url = '/api/guest-book';
+    const mockDonations: GuestBook = {
+      id: '1',
+      name: 'halo',
+      email: 'halo@halo',
+      message: 'Hallo bang'
+    }
+    service.save(mockDonations).subscribe(
+      (respon: any) => {
+        expect(respon).toBeDefined();
+      }
+    )
+    const request = httpMock.expectOne(url);
+    expect(request.request.method).toBe('PUT');
+    expect(request.request.body).toEqual(mockDonations)
+  })
 
-    it('Blog service have a getById() method', () => {
-        expect(guestBookService.getById).toBeDefined();
-    });
+  it('Should return Observable<Donation[]> GET method', () => {
+    const url = '/api/guest-book';
+    service.getAll().subscribe(
+      (respon: any) => {
+        expect(respon).toBeDefined();
+      }
+    )
+    const request = httpMock.expectOne(url);
+    expect(request.request.method).toBe('GET');
+  })
 
-    it('Blog service have a save() method', () => {
-        expect(guestBookService.save).toBeDefined();
-    });
+  it('Should return Observable<void> DELETED method', () => {
 
-    it('Blog service have a savePublic() method', () => {
-        expect(guestBookService.savePublic).toBeDefined();
-    });
+    const mockDonations: GuestBook = {
+      id: '1',
+      name: 'halo',
+      email: 'halo@halo',
+      message: 'Hallo bang'
+    }
 
-    it('Blog service have a delete() method', () => {
-        expect(guestBookService.delete).toBeDefined();
-    });
+    service.delete(mockDonations.id!).subscribe(
+      (respon: any) => {
+        expect(respon).toBeFalsy();
+      }
+    )
 
-    it('Blog service have a listUpdated() method', () => {
-        expect(guestBookService.listUpdated).toBeDefined();
-    });
+    const url = `/api/guest-book/${mockDonations.id}`
+    service.delete(mockDonations.id!)
+    const request = httpMock.expectOne(url);
+    expect(request.request.method).toBe('DELETE');
+  })
 
-    it('Blog service POST', () => {
-        const url = '/api/guest-book';
-        const mockGuestBook: GuestBook = {
-            name: 'Rudi',
-            email: 'Rudi@gmail.com',
-            message: 'Hallo Rudi',
-        };
+  it('Should return Observable<donation> GET by id method', () => {
 
-        guestBookService.save(mockGuestBook).subscribe((response: GuestBook) => {
-            expect(response).toEqual(mockGuestBook);
-        });
-        const request = httpMock.expectOne(url);
-        expect(request.request.method).toBe('POST');
-        expect(request.request.body).toEqual(mockGuestBook);
-    });
+    const mockDonations: GuestBook = {
+      id: '1',
+      name: 'halo',
+      email: 'halo@halo',
+      message: 'Hallo bang'
+    }
+
+    service.getById(mockDonations.id!).subscribe(
+      (respon: any) => {
+        expect(respon).toBeDefined();
+      }
+    )
+
+    const url = `/api/guest-book/${mockDonations.id}`
+    service.getById(mockDonations.id!);
+    const request = httpMock.expectOne(url);
+    expect(request.request.method).toBe('GET');
+  })
+
 });
