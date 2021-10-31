@@ -6,12 +6,14 @@ import { BlogComponent } from './blog.component';
 import { ListBlogComponent } from './component/list-blog/list-blog.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BlogService } from 'src/app/dashboard/blog/service/blog.service';
+import { DetailsComponent } from './components/details/details.component';
 
 
 @NgModule({
   declarations: [
     BlogComponent,
-    ListBlogComponent
+    ListBlogComponent,
+    DetailsComponent,
   ],
   imports: [
     CommonModule,
