@@ -65,4 +65,9 @@ describe('HomeComponent with DI', () => {
     component.onSubmit();
   })
 
+  it('Successfully submit from onSubmitTodo ', ()=> {
+    component.donateForm.value.donor = 'Dono';
+    component.displayErrors('donor')
+  })
+
 });
