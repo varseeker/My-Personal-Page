@@ -1,0 +1,14 @@
+<div class="container shadow-lg konten p-4 mb-4 d-flex justify-content-center">
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" *ngFor="let item of blogs">
+                    <h5 class="card-title" style="color: #0e3363;">{{ item.title }}</h5>
+                    <h6 class="card-subtitle mb-2" style="color: #ff971c">{{ item.author }}</h6>
+                    <p class="card-text">{{ item.content | slice:10 }}</p>
+                    <button class="btn" style="background-color: #ff971c; color: #0e3363;"><b>Details</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
