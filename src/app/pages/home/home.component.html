@@ -11,9 +11,9 @@
                 </p>
                 <p class="lead" style="color: #0e3363"></p>
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ff971c;">
-                        <b>Click Here</b>
-                    </button>
+                    <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ff971c">
+            Click Here
+          </button>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                         <li>
                             <a class="dropdown-item" (click)="angka = 1"><b>Ahsan</b></a>
@@ -38,116 +38,194 @@
                                 <th scope="col">Amount</th>
                             </tr>
                         </thead>
+                        <ng-container *ngIf="donations.length > 0; else kosong">
+                            <tbody>
+                                <tr *ngFor="let item of donations | slice: 0:10">
+                                    <td>{{ item.donor }}</td>
+                                    <td style="color: #ff971c">
+                                        <b>{{ item.amount }}</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                    </table>
+                    <ng-template #kosong>
                         <tbody>
                             <tr>
-                                <td>Mark</td>
-                                <td style="color: #ff971c"><b>100.000</b></td>
-                            </tr>
-                            <tr>
-                                <td>Jacob</td>
-                                <td style="color: #ff971c"><b>25.000</b></td>
-                            </tr>
-                            <tr>
-                                <td>Mark</td>
-                                <td style="color: #ff971c"><b>7.000</b></td>
+                                <td colspan="8" rowspan="5" class="text-center mt-2 fs-5 fw-normal" style="color: #0e3363">
+                                    No donored yet <i class="fas fa-sad-cry"></i>
+                                </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </ng-template>
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn mb-4 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" style="background-color: #ff971c;">
-                          <i class="fas fa-coffee"></i><b> &nbsp;   Buy us some coffee &nbsp;   :)</b>
-                      </button>
+                        <button type="submit" style="background-color: #ff971c" class="btn text-white mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+              <i class="fas fa-coffee"></i> | Buy us some coffe!
+            </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container shadow-lg">
             <div class="row">
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Donate Form</h5>
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: #0e3363">
+                                    Donation Form
+                                </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
-                                <div class="modal-body">
-                                    <div class="mb-3 has-validation">
-                                        <label for="recipient-name" class="col-form-label">Donor:</label>
-                                        <input type="text" class="form-control {{ isFieldValid('donor') }}" id="recipient-name" formControlName="donor">
-                                        <div class="invalid-feedback" validation-message [control]="donateForm.controls['donor']" [label]="'Donor'">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 has-validation">
-                                        <label for="recipient-name" class="col-form-label">Amount:</label>
-                                        <input type="number" class="form-control {{ isFieldValid('amount') }}" id="recipient-name" min="5000" formControlName="amount">
-                                        <div class="invalid-feedback" validation-message [control]="donateForm.controls['amount']" [label]="'Donor'">
-                                        </div>
-                                    </div>
+                                <div class="modal-body table-responsive">
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Message:</label>
-                                        <textarea class="form-control" id="message-text" formControlName="message"></textarea>
-                                    </div>
-                                    <div class="mb-3 justify-content-center">
-                                        <div class="form-check my-2">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                          <span class="badge rounded-pill transfer-bank">Transfer Bank</span>
-                                      </label>
-                                        </div>
-                                        <div class="form-check my-2">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                          <span class="badge rounded-pill ovo">OVO</span>
-                                      </label>
-                                        </div>
-                                        <div class="form-check my-2">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                                            <label class="form-check-label" for="flexRadioDefault3">
-                                          <span class="badge rounded-pill gopay">Gopay</span>
-                                      </label>
-                                        </div>
-                                        <div class="form-check my-2">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" />
-                                            <label class="form-check-label" for="flexRadioDefault4">
-                                        <span class="badge rounded-pill link-aja">Link Aja</span>
-                                    </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Send message</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                                        <label for="recipient-name" class="col-form-label" style="color: #0e3363">Donor:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control {{ isFieldValid('donor') }}"
+                      id="recipient-name"
+                      formControlName="donor"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      validation-message
+                      [control]="donateForm.controls['donor']"
+                      [label]="'Name'"
+                    ></div>
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      for="recipient-name"
+                      class="col-form-label"
+                      style="color: #0e3363"
+                      >Amount:</label
+                    >
+                    <input
+                      type="number"
+                      min="5000"
+                      class="form-control {{ isFieldValid('amount') }}"
+                      id="recipient-name"
+                      formControlName="amount"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      validation-message
+                      [control]="donateForm.controls['amount']"
+                      [label]="'Amount'"
+                    ></div>
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      for="message-text"
+                      class="col-form-label"
+                      style="color: #0e3363"
+                      >Message:</label
+                    >
+                    <textarea
+                      class="form-control {{ isFieldValid('message') }}"
+                      id="message-text"
+                      formControlName="message"
+                    ></textarea>
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    validation-message
+                    [control]="donateForm.controls['amount']"
+                    [label]="'Amount'"
+                  ></div>
                 </div>
+                <div class="modal-footer">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#feedback-message"
+                    style="color: white; background-color: #ff971c"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
             </div>
-            <div class="row justify-content-center">
-                <ng-container *ngIf="angka == 1; then satu; else kedua"></ng-container>
-                <ng-template #satu>
-                    <div class="container p-5">
-                        <app-resume-ahsan></app-resume-ahsan>
-                    </div>
-                </ng-template>
-                <ng-template #kedua>
-                    <ng-container *ngIf="angka == 2; else ketiga">
-                        <div class="container p-5">
-                            <app-resume-yanuar></app-resume-yanuar>
-                        </div>
-                    </ng-container>
-                    <ng-template #ketiga>
-                        <ng-container *ngIf="angka == 3; else kosong">
-                            <div class="container p-5">
-                                <app-resume-yazri></app-resume-yazri>
-                            </div>
-                        </ng-container>
-                        <ng-template #kosong> </ng-template>
-                    </ng-template>
-                </ng-template>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="feedback-message"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5
+                class="modal-title"
+                id="exampleModalLabel"
+              >Hey! <i style="color: #ff8902">{{ donateForm.get("donor")!.value }}</i>
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p class="d-flex justify-content-center">
+                Thank a lot for the mate, we appreciate that!
+              </p>
+              <div class="row align-items-">
+                <div class="d-flex justify-content-center">
+                  <div class="card" style="width: 10rem">
+                    <img
+                      src="../../../assets/img/bbbb.gif"
+                      class="card-img-top rounded mx-auto d-block"
+                      alt=""
+                      style="height: 100%"
+                    />
+                  </div>
+                </div>
+              </div>
+              <p class="d-flex justify-content-center mt-4">
+                <i style="color: #0e3363">
+                    " {{donateForm.get("message")!.value}} "
+                </i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <ng-container *ngIf="angka == 1; then satu; else kedua"></ng-container>
+        <ng-template #satu>
+          <div class="container p-5">
+            <app-resume-ahsan></app-resume-ahsan>
+          </div>
+        </ng-template>
+        <ng-template #kedua>
+          <ng-container *ngIf="angka == 2; else ketiga">
+            <div class="container p-5">
+              <app-resume-yanuar></app-resume-yanuar>
+            </div>
+          </ng-container>
+          <ng-template #ketiga>
+            <ng-container *ngIf="angka == 3; else kosong">
+              <div class="container p-5">
+                <app-resume-yazri></app-resume-yazri>
+              </div>
+            </ng-container>
+            <ng-template #kosong> </ng-template>
+          </ng-template>
+        </ng-template>
+      </div>
     </div>
+  </div>
 </div>
 <app-footer></app-footer>

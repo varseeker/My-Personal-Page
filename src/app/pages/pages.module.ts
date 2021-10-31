@@ -40,8 +40,7 @@ import { BlogPublicComponent } from './blog-public/blog-public.component';
     ReactiveFormsModule,
   ],
   providers: [
-    HomeService,
-    DonationsService
+    HomeService
   ]
 })
 export class PagesModule { }

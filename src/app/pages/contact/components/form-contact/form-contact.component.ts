@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observer } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -9,26 +14,23 @@ import { GuestBook } from 'src/app/shared/models/interface-model';
 @Component({
   selector: 'app-form-contact',
   templateUrl: './form-contact.component.html',
-  styleUrls: ['./form-contact.component.scss']
+  styleUrls: ['./form-contact.component.scss'],
 })
 export class FormContactComponent implements OnInit {
+  subscribe?: Observer<any>;
 
-
-  subscribe?: Observer <any>;
-
-  contactForm: FormGroup = new FormGroup ({
-    name: new FormControl(null, [Validators.required]),
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    message: new FormControl(null),
-  })
+  contactForm: FormGroup = new FormGroup({
+    name: new FormControl(null, [Validators.required, Validators.min(5)]),
+    email: new FormControl(null, [Validators.email]),
+    message: new FormControl(null, [Validators.required]),
+  });
 
   constructor(
     private readonly contactService: GuestbookService,
     private readonly router: Router
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onReset(): void {
     this.contactForm.reset();
@@ -38,23 +40,16 @@ export class FormContactComponent implements OnInit {
     const guestBook = this.contactForm.value;
 
     if (guestBook) {
-      this.contactService.savePublic(guestBook).pipe(
-        delay(500),
-      ).subscribe({
-        next: (response: GuestBook) => console.log(response),
-        error: console.error,
-        complete: () => {}
-      })
-      this.router.navigateByUrl('/contact')
-    }
-
-  }
-
-  isValid(): boolean {
-    if (this.contactForm.get('id')?.value) {
-      return true;
-    } else {
-      return false;
+      this.contactService
+        .savePublic(guestBook)
+        .pipe(delay(500))
+        .subscribe({
+          next: (response: GuestBook) => console.log(response),
+          error: console.error,
+          complete: () => {},
+        });
+      this.router.navigateByUrl('/contact');
+      this.onReset();
     }
   }
 
@@ -77,7 +72,9 @@ export class FormContactComponent implements OnInit {
       fieldName
     ) as AbstractControl;
     const messages: any = {
-      required: 'Field Harus di isi',
+      required: 'Field harus di isi',
+      email: 'Format yang seperti ini: example@example.com',
+      min: 'Field harus lebih besar dari {min} atau bilangan bulat',
       minlength: 'Field Minimal harus lebih panjang dari {minlength}',
     };
 
@@ -93,11 +90,14 @@ export class FormContactComponent implements OnInit {
         console.log(error);
 
         message = message.replace('{minlength}', error.requiredLength);
+      } else if (key == 'min') {
+        console.log(error);
+
+        message = message.replace('{min}', error.requiredLength);
       }
       return message;
     } else {
       return '';
     }
   }
-
 }
