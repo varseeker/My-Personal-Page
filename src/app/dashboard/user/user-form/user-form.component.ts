@@ -74,8 +74,6 @@ export class UserFormComponent implements OnInit {
       })
       this.router.navigateByUrl('/user')
     }
-
-
   }
 
   onReset() {}

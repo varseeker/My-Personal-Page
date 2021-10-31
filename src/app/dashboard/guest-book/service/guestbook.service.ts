@@ -55,8 +55,20 @@ export class GuestbookService {
     }
   }
 
+  public savePublic(GuestBook: any): Observable<any> {
+      console.log(GuestBook);
+      return this.http
+        .post<GuestBook>(`/api/pages/group5/guest-book`, GuestBook)
+        .pipe(catchError((error) => this.handleError(error)),
+        map((data)=> this.subject.next(true)),
+        );
+  }
+
   public delete(id: string): Observable<any> {
-    return this.http.delete(`/api/GuestBooks/${id}`);
+    return this.http.delete(`/api/guest-book/${id}`).pipe(
+      catchError((error) => this.handleError(error)),
+      map((data)=> this.subject.next(true)),
+    );
   }
 
   /**

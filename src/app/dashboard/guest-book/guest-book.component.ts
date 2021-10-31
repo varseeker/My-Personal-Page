@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestBookComponent implements OnInit {
 
-  show: boolean = false;
+  show: boolean = true;
 
   constructor() { }
 

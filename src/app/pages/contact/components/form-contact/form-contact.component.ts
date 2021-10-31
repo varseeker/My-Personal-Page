@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observer } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { GuestbookService } from 'src/app/dashboard/guest-book/service/guestbook.service';
 import { GuestBook } from 'src/app/shared/models/interface-model';
-import { ContactServiceService } from '../../service/contact-service.service';
 
 @Component({
   selector: 'app-form-contact',
@@ -22,7 +23,8 @@ export class FormContactComponent implements OnInit {
   })
 
   constructor(
-    private readonly contactService: ContactServiceService,
+    private readonly contactService: GuestbookService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,19 +34,20 @@ export class FormContactComponent implements OnInit {
     this.contactForm.reset();
   }
 
-  onSubmit(): void {
-    this.subscribe = {
-      next: () => {},
-      error: () => {},
-      complete: () => {}
+  onSubmit() {
+    const guestBook = this.contactForm.value;
+
+    if (guestBook) {
+      this.contactService.savePublic(guestBook).pipe(
+        delay(500),
+      ).subscribe({
+        next: (response: GuestBook) => console.log(response),
+        error: console.error,
+        complete: () => {}
+      })
+      this.router.navigateByUrl('/contact')
     }
 
-    const guest: GuestBook = this.contactForm.value;
-
-    this.contactService
-    .save(guest)
-    .pipe(delay(1000))
-    .subscribe(this.subscribe)
   }
 
 }

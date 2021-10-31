@@ -10,7 +10,7 @@ import { DonationsService } from '../service/donations.service';
   styleUrls: ['./donations-list.component.scss']
 })
 export class DonationsListComponent implements OnInit {
-
+  total!: number;
   donations: Donation[] = [];
   // loading: boolean = false;
   subscriber?: Observer<any>;
@@ -29,7 +29,11 @@ export class DonationsListComponent implements OnInit {
   getAll(){
 
     this.subscriber = {
-      next: (data: any) => {this.donations = data, console.log(data)},
+      next: (data: any) => {
+        this.donations = data,
+        this.total = this.getTotal(data);
+        console.log(data)
+      },
       error: console.error,
       complete: () => {},
     };
@@ -47,5 +51,13 @@ export class DonationsListComponent implements OnInit {
     };
 
     this.donationService.delete(id).subscribe(this.subscriber);
+  }
+
+  getTotal(data: Donation[]): number{
+    let total = 0;
+    for (let nilai = 0; nilai < data.length; nilai++) {
+        total += data[nilai].amount
+    }
+    return total;
   }
 }

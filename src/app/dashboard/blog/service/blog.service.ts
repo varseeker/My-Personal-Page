@@ -56,7 +56,11 @@ export class BlogService implements ServiceImpl<Blog>{
   }
 
   public delete(id: string): Observable<any> {
-    return this.http.delete(`/api/blogs/${id}`);
+    return this.http.delete(`/api/blogs/${id}`)
+    .pipe(
+      catchError((error) => this.handleError(error)),
+      map((data)=> this.subject.next(true)),
+    );
   }
 
   /**
