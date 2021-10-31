@@ -8,9 +8,15 @@ export const environment = {
 
 export const messages: any = {
   required: 'Field %s is Required',
+<<<<<<< HEAD
   minlength: 'Field %s has %s Minimum Character',
   min: 'Field %s at Least %s and an Integer',
   email: 'Field %s, has Valid Form example@gmail.com',
+=======
+  minlength: 'Field %s at Least Have %s Characters',
+  min: 'Field %s Must Greater than %s or an Integer',
+  email: 'Correct Form: example@example.com',
+>>>>>>> 0d88de1b2bcf441742c9d0a1b63f1bade409081c
 };
 
 /*

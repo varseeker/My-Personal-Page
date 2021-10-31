@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 0d88de1b2bcf441742c9d0a1b63f1bade409081c
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from 'src/app/app.component';
@@ -46,4 +50,10 @@ describe('ContanctComponent', () => {
     const item = element.querySelector('app-footer');
     expect(item).toBeTruthy;
   });
+<<<<<<< HEAD
 });
+=======
+});
+=======
+>>>>>>> origin/master
+>>>>>>> 0d88de1b2bcf441742c9d0a1b63f1bade409081c

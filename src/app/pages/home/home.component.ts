@@ -38,8 +38,13 @@ export class HomeComponent implements OnInit {
 
   donateForm: FormGroup = new FormGroup({
     donor: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+<<<<<<< HEAD
     amount: new FormControl(null, [Validators.required, Validators.minLength(4)]),
     message: new FormControl(null, [Validators.required]),
+=======
+    amount: new FormControl(null, [Validators.required]),
+    message: new FormControl(null),
+>>>>>>> 0d88de1b2bcf441742c9d0a1b63f1bade409081c
   });
 
   constructor(private readonly homeService: HomeService) {}
