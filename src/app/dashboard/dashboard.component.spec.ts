@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { AppComponent } from "../app.component";
 import { DashboardComponent } from "./dashboard.component";
 
-describe('', ()=> {
+describe('Dashboard Module Unit Test', ()=> {
   let fixture: ComponentFixture<DashboardComponent>
   let element: HTMLElement;
   let component: DashboardComponent;
