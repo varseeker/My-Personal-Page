@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observer } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/interface-model';
+import { DataTablesResponse } from '../models/data';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class UserListComponent implements OnInit {
   subscriber?: Observer<any>;
 
   constructor(private readonly userService:UserService) { }
+
 
   ngOnInit(): void {
     this.getAll()
