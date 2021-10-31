@@ -1,27 +1,55 @@
-# FinalTaskAngular
+# My Personal Page (Samleke Team)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
+My Personal Page Website was developed by Samleke Team. In this application there are 2 page part, for user and for admin. 
+In user page, user can see our Resume, Blog, About Us, Contact, and also they can support us by donate. 
+We as an Admin can access admin page by loggin in, and after that admin will redirect to dashboard page. 
+On dashboard admin can manage user, blog, guest book, and see all donation report.
 
-## Development server
+## Web Feature:
+- Admin Page:
+    1. Login
+    2. Manage User (CRUD)
+    3. Manage Blog (CRUD)
+    4. Manage Guest Book (CRUD)
+    5. See Donation Report
+    6. Logout
+- User Page:
+    1. See Resume
+    2. See Blog
+    3. See Contact
+    4. See About Us
+    5. See a Few Donation List
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Description Group
 
-## Code scaffolding
+Samleke is a slang word that we use in daily. We worked on by three members consisting of:
+- Ahsan (Leader)
+- Yanuar
+- Yazri
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Application Grouping Module
+## User Page
 
-## Build
+### Home
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+### About
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Blog
 
-## Running end-to-end tests
+### Contact
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Login
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Admin Page (Dashboard)
+
+### Dashboard - User
+
+### Dashboard - Blog
+
+### Dashboard - Guest Book
+
+### Donations
+## Authors
+Samleke Team
