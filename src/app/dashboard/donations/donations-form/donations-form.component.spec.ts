@@ -65,4 +65,22 @@ describe('DonationsFormComponent with DI', () => {
     component.onSubmit();
   })
 
+  it('Successfully setFormValue() from onSubmitTodo ', ()=> {
+    component.id = 'iniId';
+    const donate: Donation = {donor: 'Dono', amount: 5000 , message:'hallo'}
+    component.setFormValue(donate);
+  })
+
+  it('Successfully submit from onSubmitTodo ', ()=> {
+    component.id = 'iniId';
+    const donate: Donation = {donor: 'Dono', amount: 5000 , message:'hallo'}
+    component.isValid()
+  })
+
+  it('Successfully displayErrors() from onSubmitTodo ', ()=> {
+    component.id = 'iniId';
+    const donate: Donation = {donor: 'Dono', amount: 5000 , message:'hallo'}
+    component.displayErrors('donor')
+  })
+
 });
