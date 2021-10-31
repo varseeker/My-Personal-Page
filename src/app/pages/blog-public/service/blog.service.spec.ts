@@ -1,47 +1,48 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { GuestBook } from 'src/app/shared/models/interface-model';
-
+import { Blog } from 'src/app/shared/models/interface-model';
 import { BlogService } from './blog.service';
 
-describe('AuthService with HTTP Service ', () => {
-  let contactService: BlogService;
+describe('BlogService', () => {
+  let service: BlogService;
+  let blog: Blog[];
   let httpMock: HttpTestingController;
+  let httpClient: HttpClient;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [BlogService],
     });
-    contactService = TestBed.inject(BlogService);
+    service = TestBed.inject(BlogService);
     httpMock = TestBed.inject(HttpTestingController);
+    httpClient = TestBed.inject(HttpClient);
   });
 
-  afterEach(() => {
-    httpMock.verify();
+  it('service should be created', () => {
+    expect(service).toBeTruthy();
   });
 
-  it('Post method test in ContactService', () => {
-    const url = '/api/pages/group5/blogs';
-    const expectedMock: GuestBook[] = [
+  it('getEmployees() should call http Get method for the given route', () => {
+    blog = [
       {
-        name: 'abdul',
-        email: 'abdul@gmail.com',
-        message: 'yaelah',
+        title: 'aaa',
+        content: 'aaaaa',
+        author: 'a',
+        url: 'a-a-a-a',
       },
-      {
-        name: 'abdul',
-        email: 'abdul@gmail.com',
-        message: 'yaelah',
-      },
-    ]
+    ];
 
-    contactService.getAll().subscribe((response) => {
-      expect(response).toEqual([]);
+    service.getAll().subscribe((expected) => {
+      expect(expected).toEqual(blog);
     });
 
-    const request = httpMock.expectOne(url);
-    expect(request.request.method).toBe('Get');
-    expect(request.request.body).toEqual(expectedMock);
+    const req = httpMock.expectOne('/api/pages/group5/blogs');
+
+    httpMock.verify();
   });
-})
+});

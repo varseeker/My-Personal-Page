@@ -7,7 +7,7 @@ import { ContactComponent } from '../../contact.component';
 import { ContactServiceService } from '../../service/contact-service.service';
 import { FormContactComponent } from './form-contact.component';
 
-describe('TodoFormComponent()', () => {
+describe('FormContactComponent()', () => {
   let component: FormContactComponent;
   let fixture: ComponentFixture<FormContactComponent>;
   let serviceContact: ContactServiceService;
@@ -59,25 +59,17 @@ describe('TodoFormComponent()', () => {
       'name'
     ] as AbstractControl;
     expect(name.valid).toBeFalse();
+
     error = name.errors || {};
     expect(name.errors!['required']).toBeTruthy();
-    component.contactForm.get('name')?.setValue('Billy Jones')
-    error = name.errors!['minlength'] || {};
-    expect(error).toBeTruthy();
+
 
     let email: AbstractControl = component.contactForm.controls[
       'email'
     ] as AbstractControl;
     expect(email.valid).toBeFalse();
+
     error = email.errors || {};
     expect(email.errors!['required']).toBeTruthy();
-
-    let message: AbstractControl = component.contactForm.controls[
-      'message'
-    ] as AbstractControl;
-    expect(message.valid).toBeFalse();
-    error = message.errors || {};
-    expect(message.errors!['required']).toBeTruthy();
-
   });
 });

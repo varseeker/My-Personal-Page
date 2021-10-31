@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { GuestBook } from 'src/app/shared/models/interface-model';
 import { ContactServiceService } from './contact-service.service';
 
-describe('AuthService with HTTP Service ', () => {
+describe('ContactService with HTTP Service ', () => {
   let contactService: ContactServiceService;
   let httpMock: HttpTestingController;
 

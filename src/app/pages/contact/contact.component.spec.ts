@@ -35,10 +35,10 @@ describe('ContactComponent()', () => {
     expect(appFooter).toBeTruthy();
   });
 
-  it('Should have <app-form-contact></app-form-contact>', () => {
-    const appForm = element.querySelector('app-form-contact');
-    expect(appForm).toBeTruthy();
-  });
+  // it('Should have <app-form-contact></app-form-contact>', () => {
+  //   const appForm = element.querySelector('app-form-contact');
+  //   expect(appForm).toBeTruthy();
+  // });
 
   it('Should have div', () => {
     const div = element.querySelector('div');
