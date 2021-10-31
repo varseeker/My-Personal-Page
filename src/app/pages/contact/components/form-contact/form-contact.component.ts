@@ -20,8 +20,8 @@ export class FormContactComponent implements OnInit {
   subscribe?: Observer<any>;
 
   contactForm: FormGroup = new FormGroup({
-    name: new FormControl(null, [Validators.required, Validators.min(5)]),
-    email: new FormControl(null, [Validators.email]),
+    name: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
     message: new FormControl(null, [Validators.required]),
   });
 

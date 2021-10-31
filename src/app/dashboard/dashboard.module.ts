@@ -9,7 +9,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { DataTablesModule } from 'angular-datatables';
     UserModule,
     RouterModule,
     SharedModule,
-    DataTablesModule
   ],
   exports: [
     DashboardComponent,
