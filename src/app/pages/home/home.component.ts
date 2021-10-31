@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   donateForm: FormGroup = new FormGroup({
     donor: new FormControl(null, [Validators.required]),
-    amount: new FormControl(null, [Validators.min(5000)]),
+    amount: new FormControl(null, [Validators.required ,Validators.min(5000)]),
     message: new FormControl(null)
   })
 

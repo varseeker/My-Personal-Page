@@ -2,13 +2,17 @@
     <div class="container-md shadow p-5">
         <h1 class="title">Get in touch</h1>
         <form class="contact-form row" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-            <div class="form-field col-lg-6">
-                <input id="name" class="input-text js-input" type="text" required formControlName="name" />
+            <div class="form-field col-lg-6 has-validation">
+                <input id="name" class="input-text js-input {{ isFieldValid('name') }}" type="text" required formControlName="name" />
                 <label class="label mb-3" for="name">Name</label>
+                <div class="invalid-feedback" validation-message [control]="contactForm.controls['name']" [label]="'Name'">
+                </div>
             </div>
-            <div class="form-field col-lg-6">
-                <input id="email" class="input-text js-input" type="email" required formControlName="email" />
+            <div class="form-field col-lg-6 has-validation">
+                <input id="email" class="input-text js-input {{ isFieldValid('email') }}" type="email" required formControlName="email" />
                 <label class="label mb-3" for="email">Email</label>
+                <div class="invalid-feedback" validation-message [control]="contactForm.controls['email']" [label]="'Email'">
+                </div>
             </div>
             <div class="form-field col-lg-12">
                 <input id="message" class="input-text js-input" type="text" required formControlName="message" />

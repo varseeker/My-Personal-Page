@@ -80,8 +80,8 @@
                                     </div>
                                     <div class="mb-3 has-validation">
                                         <label for="recipient-name" class="col-form-label">Amount:</label>
-                                        <input type="text" class="form-control {{ isFieldValid('amount') }}" id="recipient-name" formControlName="amount">
-                                        <div class="invalid-feedback" validation-message [control]="donateForm.controls['amoun']" [label]="'Donor'">
+                                        <input type="number" class="form-control {{ isFieldValid('amount') }}" id="recipient-name" min="5000" formControlName="amount">
+                                        <div class="invalid-feedback" validation-message [control]="donateForm.controls['amount']" [label]="'Donor'">
                                         </div>
                                     </div>
                                     <div class="mb-3">
