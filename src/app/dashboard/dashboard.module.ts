@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     DashboardRoutingModule,
     UserModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     DashboardComponent,

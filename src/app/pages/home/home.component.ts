@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observer } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { DonationsService } from 'src/app/dashboard/donations/service/donations.service';
@@ -15,27 +15,10 @@ export class HomeComponent implements OnInit {
 
   angka!: number;
   subscribe?: Observer<any>;
-  donations?: Donation[] = [
-    {
-      donor: 'hablum',
-      amount: 60000,
-      message: 'semangat bang'
-    },
-    {
-      donor: 'minnan',
-      amount: 98000,
-      message: 'udah sholat belum bang?'
-    },
-    {
-      donor: 'naaas',
-      amount: 77000,
-      message: 'makan bang'
-    }
-  ];
 
   donateForm: FormGroup = new FormGroup({
-    donor: new FormControl(null),
-    amount: new FormControl(null),
+    donor: new FormControl(null, [Validators.required]),
+    amount: new FormControl(null, [Validators.min(5000)]),
     message: new FormControl(null)
   })
 
@@ -74,6 +57,56 @@ export class HomeComponent implements OnInit {
     .getAll()
     .pipe(delay(2000))
     .subscribe
+  }
+
+  isValid(): boolean {
+    if (this.donateForm.get('id')?.value) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isFieldValid(fieldName: string): string {
+    const control: AbstractControl = this.donateForm.get(
+      fieldName
+    ) as AbstractControl;
+
+    if (control && control.touched && control.invalid) {
+      return 'is-invalid';
+    } else if (control && control.valid) {
+      return 'is-valid';
+    } else {
+      return '';
+    }
+  }
+
+  displayErrors(fieldName: string): string {
+    const control: AbstractControl = this.donateForm.get(
+      fieldName
+    ) as AbstractControl;
+    const messages: any = {
+      required: 'Field Harus di isi',
+      minlength: 'Field Minimal harus lebih panjang dari {minlength}',
+    };
+
+    if (control && control.errors) {
+      const error = Object.values(control.errors).pop();
+      const key: string = Object.keys(control.errors).pop() as string;
+
+      let message = messages[key];
+
+      console.log(message);
+
+      if (key === 'minlength') {
+        console.log(error);
+
+        message = message.replace('{minlength}', error.requiredLength);
+      }
+      return message;
+    } else {
+      return '';
+    }
   }
 
 }
