@@ -1,79 +1,131 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Observer } from 'rxjs';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Observable, Observer, Subject } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { DonationsService } from 'src/app/dashboard/donations/service/donations.service';
+import { ValidationMessageComponent } from 'src/app/shared/components/validation-message/validation-message.component';
 import { Donation } from 'src/app/shared/models/interface-model';
 import { HomeService } from './service/home.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   angka!: number;
   subscribe?: Observer<any>;
-  donations?: Donation[] = [
+  donations: Donation[] = [
     {
-      donor: 'hablum',
-      amount: 60000,
-      message: 'semangat bang'
+      donor: 'dono',
+      amount: 100000,
+      message: '',
     },
     {
-      donor: 'minnan',
-      amount: 98000,
-      message: 'udah sholat belum bang?'
+      donor: 'kasin',
+      amount: 197110,
+      message: '',
     },
     {
-      donor: 'naaas',
-      amount: 77000,
-      message: 'makan bang'
+      donor: 'indro',
+      amount: 80120,
+      message: '',
     }
   ];
 
   donateForm: FormGroup = new FormGroup({
-    donor: new FormControl(null),
-    amount: new FormControl(null),
-    message: new FormControl(null)
-  })
+    donor: new FormControl(null, [Validators.required, Validators.min(5)]),
+    amount: new FormControl(null, [Validators.required, Validators.min(4)]),
+    message: new FormControl(null),
+  });
 
-  constructor(
-    private readonly homeService: HomeService,
-    private readonly donateService: DonationsService
-  ) { }
+  constructor(private readonly homeService: HomeService) {}
 
   ngOnInit(): void {
-    this.getAll()
+    this.getAll();
+    this.homeService.listUpdated().subscribe((updated: boolean) => {
+      if (updated) {
+        this.getAll();
+      }
+    });
   }
 
   onSubmit(): void {
     const donate: Donation = this.donateForm.value;
 
     this.subscribe = {
-      next: (data) => {console.log(data)},
+      next: (data) => {
+        console.log(data);
+      },
       error: () => {},
       complete: () => {},
-    }
+    };
 
-    this.homeService
-    .save(donate)
-    .pipe(delay(1000))
-    .subscribe(this.subscribe)
+    this.homeService.save(donate).pipe(delay(1000)).subscribe(this.subscribe);
   }
 
   getAll(): void {
     this.subscribe = {
-      next: (data) => {console.log(data)},
+      next: (data: any) => {
+        this.donations = data;
+        console.log(data);
+      },
       error: () => {},
       complete: () => {},
-    }
+    };
 
-    this.donateService
-    .getAll()
-    .pipe(delay(2000))
-    .subscribe
+    this.homeService.getAll().pipe(delay(2000)).subscribe;
   }
 
+  isFieldValid(fieldName: string): string {
+    const control: AbstractControl = this.donateForm.get(
+      fieldName
+    ) as AbstractControl;
+
+    if (control && control.touched && control.invalid) {
+      return 'is-invalid';
+    } else if (control && control.valid) {
+      return 'is-valid';
+    } else {
+      return '';
+    }
+  }
+
+  displayErrors(fieldName: string): string {
+    const control: AbstractControl = this.donateForm.get(
+      fieldName
+    ) as AbstractControl;
+    const messages: any = {
+      required: 'Field Harus di isi',
+      min: 'Field harus lebih besar dari {min} atau bilangan bulat',
+      minlength: 'Field Minimal harus lebih panjang dari {minlength}',
+    };
+
+    if (control && control.errors) {
+      const error = Object.values(control.errors).pop();
+      const key: string = Object.keys(control.errors).pop() as string;
+
+      let message = messages[key];
+
+      console.log(message);
+
+      if (key === 'minlength') {
+        console.log(error);
+
+        message = message.replace('{minlength}', error.requiredLength);
+      } else if (key == 'min') {
+        console.log(error);
+
+        message = message.replace('{min}', error.requiredLength);
+      }
+      return message;
+    } else {
+      return '';
+    }
+  }
 }

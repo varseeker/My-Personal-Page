@@ -38,8 +38,7 @@ import { ContactModule } from './contact/contact.module';
     ReactiveFormsModule,
   ],
   providers: [
-    HomeService,
-    DonationsService
+    HomeService
   ]
 })
 export class PagesModule { }
