@@ -9,17 +9,17 @@
         <div class="body">
             <form action="" class="row g-3" [formGroup]="donateForm" (ngSubmit)="onSubmit()">
                 <div class="col-md-6 has-validation">
-                    <label class="form-label">Donor Name</label>
+                    <label class="form-label"><b>Donor Name</b></label>
                     <input type="text" class="form-control {{ isFieldValid('donor') }}" placeholder="Donor Name" formControlName="donor" />
                     <div class="invalid-feedback" validation-message [control]="donateForm.controls['donor']" [label]="'Name'"></div>
                 </div>
                 <div class="col-md-6 has-validation">
-                    <label class="form-label">Amount</label>
+                    <label class="form-label"><b>Amount</b></label>
                     <input type="number" min="5000" class="form-control {{ isFieldValid('amount') }}" placeholder="Amount" formControlName="amount" />
                     <div class="invalid-feedback" validation-message [control]="donateForm.controls['amount']" [label]="'Amount '"></div>
                 </div>
                 <div class="col-md-12">
-                    <label class="form-label">Message</label>
+                    <label class="form-label"><b>Messag</b>e</label>
                     <input type="text" min="1" class="form-control" placeholder="Message" formControlName="message" />
                 </div>
                 <div class="col-8 mb-3">

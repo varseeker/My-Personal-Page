@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BlogRoutingModule } from './blog-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { BlogService } from 'src/app/dashboard/blog/service/blog.service';
-import { BlogPublicComponent } from './blog.component';
+import { BlogPublicRoutingModule } from './blog-public-routing.module';
+import { BlogPublicComponent } from './blog-public.component';
 import { ListBlogComponent } from './components/list-blog/list-blog.component';
 import { DetailsComponent } from './components/details/details.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -17,11 +16,8 @@ import { DetailsComponent } from './components/details/details.component';
   ],
   imports: [
     CommonModule,
-    BlogRoutingModule,
+    BlogPublicRoutingModule,
     SharedModule
-  ],
-  providers: [
-    BlogService
   ]
 })
-export class BlogModule { }
+export class BlogPublicModule { }

@@ -60,7 +60,11 @@
                     </ng-template>
                     <div class="d-flex justify-content-center">
                         <button type="submit" style="background-color: #ff971c" class="btn text-white mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
-              <i class="fas fa-coffee"></i> <span class="border-start ms-3 border-3 border-white p-2"> Buy us some coffee!</span> <i class="fas fa-smile-wink fs-6"></i>
+              <i class="fas fa-coffee"></i>
+              <span class="border-start ms-3 border-3 border-white p-2">
+                Buy us some coffee!</span
+              >
+              <i class="fas fa-smile-wink fs-6"></i>
             </button>
                     </div>
                 </div>
@@ -135,6 +139,84 @@
                     [control]="donateForm.controls['amount']"
                     [label]="'Amount'"
                   ></div>
+                  <div
+                    _ngcontent-jov-c58=""
+                    class="mb-3 justify-content-center"
+                  >
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault1"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill transfer-bank"
+                          >Transfer Bank</span
+                        ></label
+                      >
+                    </div>
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                        checked=""
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault2"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill ovo"
+                          >OVO</span
+                        ></label
+                      >
+                    </div>
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault3"
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault3"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill gopay"
+                          >Gopay</span
+                        ></label
+                      >
+                    </div>
+                    <div _ngcontent-jov-c58="" class="form-check my-2">
+                      <input
+                        _ngcontent-jov-c58=""
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault4"
+                        class="form-check-input"
+                      /><label
+                        _ngcontent-jov-c58=""
+                        for="flexRadioDefault4"
+                        class="form-check-label"
+                        ><span
+                          _ngcontent-jov-c58=""
+                          class="badge rounded-pill link-aja"
+                          >Link Aja</span
+                        ></label
+                      >
+                    </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button
@@ -164,10 +246,11 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5
-                class="modal-title"
-                id="exampleModalLabel"
-              >Hey! <i style="color: #ff8902">{{ donateForm.get("donor")!.value }}</i>
+              <h5 class="modal-title" id="exampleModalLabel">
+                Hey!
+                <i style="color: #ff8902">{{
+                  donateForm.get("donor")!.value
+                }}</i>
               </h5>
               <button
                 type="button"
@@ -194,7 +277,7 @@
               </div>
               <p class="d-flex justify-content-center mt-4">
                 <i style="color: #0e3363">
-                    " {{donateForm.get("message")!.value}} "
+                  " {{ donateForm.get("message")!.value }} "
                 </i>
               </p>
             </div>

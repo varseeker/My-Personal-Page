@@ -68,7 +68,7 @@ export class GuestbookFormComponent implements OnInit {
         error: console.error,
         complete: () => {}
       })
-      this.router.navigateByUrl('/guest')
+      this.router.navigateByUrl('/dashboard/guest')
     }
 
   }

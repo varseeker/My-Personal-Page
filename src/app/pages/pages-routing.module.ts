@@ -26,7 +26,8 @@ const routes: Routes = [
     path: ':id',
     component: PagesComponent,
   },
-  
+  { path: 'blog', loadChildren: () => import('./blog-public/blog-public.module').then(m => m.BlogPublicModule) },
+
 ];
 
 @NgModule({
