@@ -26,7 +26,7 @@ describe('HomeComponent()', () => {
         debugElement = fixture.debugElement;
     })
 
-    it('Should create the AboutComponent', () => {
+    it('Should create the HomeComponent', () => {
         fixture = TestBed.createComponent(HomeComponent);
         const home = fixture.componentInstance;
         expect(home).toBeTruthy()
