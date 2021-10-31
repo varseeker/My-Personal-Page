@@ -60,4 +60,21 @@ describe('GuestbookListComponent', () => {
     expect(component.onDelete).toBeDefined();
   })
 
+  it('Should create the GuestbookListComponent', ()=>{
+    fixture = TestBed.createComponent(GuestbookListComponent)
+    const guestBook = fixture.componentInstance;
+    expect(guestBook).toBeTruthy();
+  })
+
+  describe('#fakeAsync and Tick', () => {
+    it('Asynchronous test example with setTimeOut without fake async', () => {
+      let test = false;
+      setTimeout(() => {
+        console.log('running assertion');
+        test = true;
+        expect(test).toBeTruthy();
+      }, 1000);
+    })
+
+})
 })
