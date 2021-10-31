@@ -49,7 +49,7 @@ export class BlogFormComponent implements OnInit {
         complete: () => {}
       })
 
-      this.router.navigateByUrl('/blog')
+      this.router.navigateByUrl('/dashboard/blog')
     }
   }
 

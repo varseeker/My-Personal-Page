@@ -1,16 +1,20 @@
-<app-header-dashboard></app-header-dashboard>
-<div class="content">
-    <div class="container shadow">
-        <div class="row">
-            <div class="col-12">
-                <button class="btn btn-outline-primary w-100 my-5 shadow" (click)="showUser()">
-                SHOW USER MANAGEMENT
-              </button>
-            </div>
-            <div class="col-12" *ngIf="show == true">
-                <app-user></app-user>
+<app-navbar></app-navbar>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-4">
+            <app-header-dashboard></app-header-dashboard>
+        </div>
+        <div class="col-8">
+            <button class="btn btn-outline-primary w-100 my-5 shadow" (click)="showUser()">
+        SHOW USER MANAGEMENT
+      </button>
+            <div class="row" *ngIf="show == true">
+                <div class="col-12">
+                    <app-user></app-user>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 <app-footer-dashboard></app-footer-dashboard>

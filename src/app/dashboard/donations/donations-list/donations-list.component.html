@@ -10,14 +10,14 @@
             <hr />
         </div>
         <div class="body table-responsive">
-            <table class="table table-striped table-hover table-inverse shadow">
+            <table datatable class="table table-striped table-hover table-inverse shadow">
                 <thead class="thead-inverse">
                     <tr class="text-center">
                         <th>Donate ID</th>
                         <th>Donor Name</th>
                         <th>Amount</th>
                         <th>Message</th>
-                        <th class="text-center">Action</th>
+                        <!-- <th class="text-center">Action</th> -->
                     </tr>
                 </thead>
                 <ng-container *ngIf="donations.length > 0; else kosong">
@@ -44,14 +44,14 @@
                       </ng-template> -->
 
                             <!-- ACTION -->
-                            <td>
-                                <button class="btn btn-outline-warning mb-1 col-5 w-100" routerLink="/donate/{{ donate.id }}">
+                            <!-- <td>
+                                <button class="btn btn-outline-warning mb-1 col-5 w-100" routerLink="/dashboard/donate/{{ donate.id }}">
                   <i class="fas fa-edit"></i>
                 </button>
                                 <button class="btn btn-outline-danger mb-1 col-5 w-100" (click)="onDelete(donate.id!)">
                   <i class="fas fa-trash-alt"></i>
                 </button>
-                            </td>
+                            </td> -->
                         </tr>
                     </tbody>
                 </ng-container>

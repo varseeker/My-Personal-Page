@@ -68,7 +68,7 @@ export class DonationsFormComponent implements OnInit {
         error: console.error,
         complete: () => {}
       })
-      this.router.navigateByUrl('/donate')
+      this.router.navigateByUrl('/dashboard/donate')
     }
 
 
