@@ -64,10 +64,4 @@ describe('HomeComponent with DI', () => {
     component.donateForm.value.donor = 'Dono';
     component.onSubmit();
   })
-
-  it('Successfully submit from onSubmitTodo ', ()=> {
-    component.donateForm.value.donor = 'Dono';
-    component.displayErrors('donor')
-  })
-
 });

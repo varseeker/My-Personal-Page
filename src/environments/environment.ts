@@ -7,10 +7,10 @@ export const environment = {
 };
 
 export const messages: any = {
-  required: 'Field %s Harus di isi',
-  minlength: 'Field %s Minimal harus lebih panjang dari %s',
-  min: 'Field %s harus lebih besar dari %s dan bernilai bilangan bulat',
-  email: 'Field %s harus berupa email yang valid',
+  required: 'Field %s is Required',
+  minlength: 'Field %s at Least Have %s Characters',
+  min: 'Field %s Must Greater than %s or an Integer',
+  email: 'Correct Form: example@example.com',
 };
 
 /*

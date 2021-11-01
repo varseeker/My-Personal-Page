@@ -7,8 +7,6 @@ import {
 } from '@angular/forms';
 import { Observable, Observer, Subject } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { DonationsService } from 'src/app/dashboard/donations/service/donations.service';
-import { ValidationMessageComponent } from 'src/app/shared/components/validation-message/validation-message.component';
 import { Donation } from 'src/app/shared/models/interface-model';
 import { HomeService } from './service/home.service';
 
@@ -39,9 +37,9 @@ export class HomeComponent implements OnInit {
   ];
 
   donateForm: FormGroup = new FormGroup({
-    donor: new FormControl(null, [Validators.required, Validators.min(5)]),
-    amount: new FormControl(null, [Validators.required, Validators.min(4)]),
-    message: new FormControl(null),
+    donor: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+    amount: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+    message: new FormControl(null, [Validators.required]),
   });
 
   constructor(private readonly homeService: HomeService) {}
@@ -91,39 +89,6 @@ export class HomeComponent implements OnInit {
       return 'is-invalid';
     } else if (control && control.valid) {
       return 'is-valid';
-    } else {
-      return '';
-    }
-  }
-
-  displayErrors(fieldName: string): string {
-    const control: AbstractControl = this.donateForm.get(
-      fieldName
-    ) as AbstractControl;
-    const messages: any = {
-      required: 'Field Harus di isi',
-      min: 'Field harus lebih besar dari {min} atau bilangan bulat',
-      minlength: 'Field Minimal harus lebih panjang dari {minlength}',
-    };
-
-    if (control && control.errors) {
-      const error = Object.values(control.errors).pop();
-      const key: string = Object.keys(control.errors).pop() as string;
-
-      let message = messages[key];
-
-      console.log(message);
-
-      if (key === 'minlength') {
-        console.log(error);
-
-        message = message.replace('{minlength}', error.requiredLength);
-      } else if (key == 'min') {
-        console.log(error);
-
-        message = message.replace('{min}', error.requiredLength);
-      }
-      return message;
     } else {
       return '';
     }

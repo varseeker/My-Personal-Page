@@ -75,9 +75,6 @@ describe('FormContactComponent with DI', () => {
     component.isFieldValid('name')
   })
 
-  it('Successfully displayErrors() from onSubmitTodo ', ()=> {
-    const donate: GuestBook = {name: 'Dono', email: 'asas@asa' , message:'hallo'}
-    component.displayErrors('name')
-  })
+
 
 });

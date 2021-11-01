@@ -3,7 +3,7 @@
         <h1 class="title">Get in touch</h1>
         <form class="contact-form row" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="form-field col-lg-6">
-                <input id="name" class="input-text js-input form-control {{ isFieldValid('name') }}" type="text" formControlName="name" />
+                <input id="name" class="input-text js-input form-control {{ isFieldValid('name') }}" type="text" min="5" formControlName="name" />
                 <div class="invalid-feedback" validation-message [control]="contactForm.controls['name']" [label]="'Name'"></div>
                 <label class="label mb-5" for="name">Name</label>
             </div>
@@ -30,7 +30,6 @@
                     <h5 class="modal-title" id="exampleModalLabel" style="color: #ff8902;">Hey!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" style="color: #0e3363;">Thank a lot for the feedback, we appreciate it!</div>
             </div>
         </div>
     </div>

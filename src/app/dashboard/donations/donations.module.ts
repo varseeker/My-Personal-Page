@@ -23,7 +23,6 @@ import { DataTableDirective, DataTablesModule } from 'angular-datatables';
     ReactiveFormsModule,
     DashboardModule,
     SharedModule,
-    DataTablesModule
   ]
 })
 export class DonationsModule { }

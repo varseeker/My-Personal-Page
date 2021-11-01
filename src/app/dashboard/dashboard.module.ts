@@ -25,7 +25,6 @@ import { DataTablesModule } from 'angular-datatables';
     UserModule,
     RouterModule,
     SharedModule,
-    DataTablesModule
   ],
   exports: [
     DashboardComponent,

@@ -24,7 +24,6 @@ import { DataTablesModule } from 'angular-datatables';
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
-    DataTablesModule
   ],
   exports: [
     UserComponent,
